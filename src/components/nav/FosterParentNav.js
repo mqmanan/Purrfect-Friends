@@ -6,26 +6,26 @@ export const FosterParentNav = () => {
 
     return (
         <ul className="navbar">
-             <li className="navbar__item active">
-                <Link className="navbar__link" to="/">Home</Link>
+             <li className="navbar-item">
+                <Link className="navbar-link" to="/">Home</Link>
             </li>
-            <li className="navbar__item active">
-                <Link className="navbar__link" to="/fosters">Meet The Fosters</Link>
+            <li className="navbar-item">
+                <Link className="navbar-link" to="/fosters">Meet The Fosters</Link>
             </li>
-            <li className="navbar__item active">
-                <Link className="navbar__link" to="/fosterparents">Meet The Parents</Link>
+            <li className="navbar-item">
+                <Link className="navbar-link" to="/create">New Foster Form</Link>
             </li>
-            <li className="navbar__item active">
-                <Link className="navbar__link" to="/create">New Foster Form</Link>
+            <li className="navbar-item">
+                <Link className="navbar-link" to="/mailbox">Mailbox</Link>
             </li>
-            <li className="navbar__item active">
-                <Link className="navbar__link" to="/profile">Profile</Link>
+            <li className="navbar-item">
+                <Link className="navbar-link" to="/profile">Profile</Link>
             </li>
             
             {
                 localStorage.getItem("purrfect_user")
-                    ? <li className="navbar__item navbar__logout">
-                        <Link className="navbar__link" to="" onClick={() => {
+                    ? <li className="navbar-item navbar-logout">
+                        <Link className="navbar-link" to="" onClick={() => {
                             localStorage.removeItem("purrfect_user")
                             navigate("/", {replace: true})
                         }}>Logout</Link>

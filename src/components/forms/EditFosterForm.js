@@ -1,14 +1,16 @@
 import { useState, useEffect } from "react"
-import { useNavigate } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 
-export const NewFosterForm = () => {
+export const EditFosterForm = () => {
+    const { fosterId } = useParams()
     const [ageRanges, setAgeRanges] = useState([])
     const [furPatterns, setFurPatterns] = useState([])
     const [hogwartHouses, setHogwartHouses] = useState([])
     const [fosterParents, setFosterParents] = useState([])
+    
     const navigate = useNavigate()
 
-    const [userChoices, setUserChoices] = useState({
+    const [ foster, updateFoster ] = useState({
         name: "",
         imageUrl: "",
         ageRangeId: 0,
@@ -25,6 +27,12 @@ export const NewFosterForm = () => {
         fosterParentId: 0
     })
 
+    const handleInputChange = (event) => {
+        const copy = { ...foster }
+        copy[event.target.id] = event.target.value
+        updateFoster(copy)
+    }
+
     useEffect(
         () => {
             fetch(`http://localhost:8088/ageRanges`)
@@ -37,6 +45,16 @@ export const NewFosterForm = () => {
         },
         [] // When this array is empty, you are observing initial component state
     )
+
+    // TODO: Get foster info from API and update state
+    useEffect(() => {
+        fetch(`http://localhost:8088/fosters/${fosterId}`)
+            .then(response => response.json())
+            .then((data) => {                
+                updateFoster(data)
+            })
+    },
+    [])
 
     useEffect(
         () => {
@@ -77,70 +95,35 @@ export const NewFosterForm = () => {
         [] // When this array is empty, you are observing initial component state
     )
 
-     // make  funciton to store userChoices ticket
 
-    const handleInputChange = (event) => {
-        const copy = { ...userChoices }
-        copy[event.target.id] = event.target.value
-        setUserChoices(copy)
-    }
+
 
     const handleSaveButtonClick = (event) => {
         event.preventDefault()
 
-    const newFoster = {
-        name: userChoices.name,
-        imageUrl: userChoices.imageUrl,
-        ageRangeId: userChoices.ageRangeId,
-        furPatternId: userChoices.furPatternId,
-        hogwartHouseId: userChoices.hogwartHouseId,
-        dob: userChoices.dob,
-        description: userChoices.description,
-        fvrcpVaccine1: userChoices.fvrcpVaccine1,
-        fvrcpVaccine2: userChoices.fvrcpVaccine2,
-        fvrcpVaccine3: userChoices.fvrcpVaccine3,
-        felvVaccine: userChoices.felvVaccine,
-        rabies: userChoices.rabies,
-        spayedNeutered: userChoices.spayedNeutered,
-        fosterParentId: userChoices.fosterParentId
-        }
+        /*
+            TODO: Perform the PUT fetch() call here to update the information.
+            Navigate user to home page when done.
+        */
 
-        // this will post new userChoices ticket to database
-
-        if (
-            userChoices.name &&
-            userChoices.imageUrl &&
-            userChoices.ageRangeId &&
-            userChoices.furPatternId &&
-            userChoices.hogwartHouseId &&
-            userChoices.dob &&
-            userChoices.description &&
-            userChoices.fvrcpVaccine1 &&
-            userChoices.fvrcpVaccine2 &&
-            userChoices.fvrcpVaccine3 &&
-            userChoices.felvVaccine &&
-            userChoices.rabies &&
-            userChoices.spayedNeutered &&
-            userChoices.fosterParentId
-        ) {
-            fetch('http://localhost:8088/fosters', {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(newFoster),
+        return fetch(`http://localhost:8088/fosters/${foster.id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(foster)
+        })
+            .then(response => response.json())
+            .then(() => {
+                navigate("/fosters")
             })
-                .then((response) => response.json())
-                .then(() => navigate("/fosters"))    
-        } else {
-            alert("Fill out the entire form please!")
-        }
     }
 
-    return (
-        <form className="ticketForm">
-            <div className="ticketForm__title">✨ New Foster ✨</div>
+    return <>
 
+        <form className="profile">
+            <div className="profile__title">Update Foster Details</div>
+            
             <fieldset>
                 <div className="form">
                     <label htmlFor="name">Name:</label>
@@ -150,8 +133,7 @@ export const NewFosterForm = () => {
                         id="name"
                         type="text"
                         className="form-control"
-                        placeholder="Foster name"
-                        value={userChoices.name}
+                        value={foster.name}
                         onChange={handleInputChange}
                         /> 
                 </div>
@@ -165,8 +147,7 @@ export const NewFosterForm = () => {
                         id="imageUrl"
                         type="text"
                         className="form-control"
-                        placeholder="Example.com"
-                        value={userChoices.imageUrl}
+                        value={foster.imageUrl}
                         onChange={handleInputChange} 
                     />
                 </div>
@@ -182,11 +163,11 @@ export const NewFosterForm = () => {
                                     <input 
                                     type ="radio" 
                                     value={ageRange.id} 
-                                    checked={userChoices.ageRangeId === ageRange.id}
+                                    checked={foster.ageRangeId === ageRange.id}
                                     onChange={(event) => {
-                                        const copy = { ...userChoices }
+                                        const copy = { ...foster}
                                         copy.ageRangeId = parseInt(event.target.value)
-                                        setUserChoices(copy)
+                                        updateFoster(copy)
                                     }}
                                 />
                                 {ageRange.name}
@@ -207,11 +188,11 @@ export const NewFosterForm = () => {
                                     <input 
                                     type ="radio" 
                                     value={furPattern.id} 
-                                    checked={userChoices.furPatternId === furPattern.id}
+                                    checked={foster.furPatternId === furPattern.id}
                                     onChange={(event) => {
-                                        const copy = { ...userChoices }
+                                        const copy = { ...foster }
                                         copy.furPatternId = parseInt(event.target.value)
-                                        setUserChoices(copy)
+                                        updateFoster(copy)
                                     }}
                                 />
                                 {furPattern.name}
@@ -232,11 +213,11 @@ export const NewFosterForm = () => {
                                     <input 
                                     type ="radio" 
                                     value={hogwartHouse.id} 
-                                    checked={userChoices.hogwartHouseId === hogwartHouse.id}
+                                    checked={foster.hogwartHouseId === hogwartHouse.id}
                                     onChange={(event) => {
-                                        const copy = { ...userChoices }
+                                        const copy = { ...foster }
                                         copy.hogwartHouseId = parseInt(event.target.value)
-                                        setUserChoices(copy)
+                                        updateFoster(copy)
                                     }}
                                 />
                                 {hogwartHouse.name}
@@ -258,8 +239,7 @@ export const NewFosterForm = () => {
                             height: "10rem"
                             }}
                         className="form-control"
-                        placeholder="Foster Description"
-                        value={userChoices.description}
+                        value={foster.description}
                         onChange={handleInputChange}
                         />
                 </div>
@@ -273,8 +253,7 @@ export const NewFosterForm = () => {
                         id="dob"
                         type="text"
                         className="form-control"
-                        placeholder="Date of birth"
-                        value={userChoices.dob}
+                        value={foster.dob}
                         onChange={handleInputChange}
                         />
                 </div>
@@ -288,8 +267,7 @@ export const NewFosterForm = () => {
                         id="fvrcpVaccine1"
                         type="text"
                         className="form-control"
-                        placeholder="Date of Vaccine -- if none, type N/A"
-                        value={userChoices.fvrcpVaccine1}
+                        value={foster.fvrcpVaccine1}
                         onChange={handleInputChange}
                         />
                 </div>
@@ -303,8 +281,7 @@ export const NewFosterForm = () => {
                         id="fvrcpVaccine2"
                         type="text"
                         className="form-control"
-                        placeholder="Date of Vaccine -- if none, type N/A"
-                        value={userChoices.fvrcpVaccine2}
+                        value={foster.fvrcpVaccine2}
                         onChange={handleInputChange}
                         />
                 </div>
@@ -318,8 +295,7 @@ export const NewFosterForm = () => {
                         id="fvrcpVaccine3"
                         type="text"
                         className="form-control"
-                        placeholder="Date of Vaccine -- if none, type N/A"
-                        value={userChoices.fvrcpVaccine3}
+                        value={foster.fvrcpVaccine3}
                         onChange={handleInputChange}
                         />
                 </div>
@@ -333,8 +309,7 @@ export const NewFosterForm = () => {
                         id="felvVaccine"
                         type="text"
                         className="form-control"
-                        placeholder="Date of Vaccine -- if none, type N/A"
-                        value={userChoices.felvVaccine}
+                        value={foster.felvVaccine}
                         onChange={handleInputChange}
                         />
                 </div>
@@ -348,8 +323,7 @@ export const NewFosterForm = () => {
                         id="rabies"
                         type="text"
                         className="form-control"
-                        placeholder="Date of Vaccine -- if none, type N/A"
-                        value={userChoices.rabies}
+                        value={foster.rabies}
                         onChange={handleInputChange}
                         />
                 </div>
@@ -363,8 +337,7 @@ export const NewFosterForm = () => {
                         id="spayedNeutered"
                         type="text"
                         className="form-control"
-                        placeholder="Yes or No?"
-                        value={userChoices.spayedNeutered}
+                        value={foster.spayedNeutered}
                         onChange={handleInputChange}
                         />
                 </div>
@@ -379,11 +352,11 @@ export const NewFosterForm = () => {
                                 id = "fosterParent"
                                 type ="text"
                                 className = "form-control" 
-                                value={userChoices.fosterParentId} 
+                                value={foster.fosterParentId} 
                                 onChange={(event) => {
-                                    const copy = { ...userChoices }
+                                    const copy = { ...foster }
                                     copy.fosterParentId = parseInt(event.target.value)
-                                    setUserChoices(copy)
+                                    updateFoster(copy)
                                 }}
                             >
                                 <option>✦ Select Foster Parent ✦</option>
@@ -403,8 +376,8 @@ export const NewFosterForm = () => {
                     handleSaveButtonClick(event)
                     }}
                 >
-                Submit Ticket
+                Save Edits
             </button><br></br><br></br>
         </form>
-    )
+    </>
 }
