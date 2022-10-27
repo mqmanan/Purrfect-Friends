@@ -13,10 +13,7 @@ export const UserNav = () => {
                 <Link className="navbar__link" to="/fosters">Meet The Fosters</Link>
             </li>
             <li className="navbar__item active">
-                <Link className="navbar__link" to="/fosterparents">Meet The Parents</Link>
-            </li>
-            <li className="navbar__item active">
-                <Link className="navbar__link" to="/join">Join Us</Link>
+                <Link className="navbar__link" to="/contact">Contact Us</Link>
             </li>
             <li className="navbar__item active">
                 <Link className="navbar__link" to="/profile">Profile</Link>

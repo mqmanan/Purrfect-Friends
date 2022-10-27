@@ -1,5 +1,8 @@
 import { Route, Routes } from 'react-router-dom'
 import { FosterList } from "../fosters/FosterList"
+import { FosterDetails } from '../fosters/FosterDetails'
+import { MessageForm } from '../forms/MessageForm'
+import { ProfileDetails } from '../profiles/ProfileDetails'
 
 export const UserView = () => {
 	return (
@@ -14,9 +17,12 @@ export const UserView = () => {
 			</Route>
 
 			<Route path="fosters" element={ <FosterList /> } />
-			<Route path="fosterparents" element={ <></> } />
-			<Route path="join" element={ <></> } />
-			<Route path="profile" element={ <></> } />
+
+			<Route path="fosters/:fosterId" element={ <FosterDetails /> } />
+
+			<Route path="contact" element={ <MessageForm /> } />
+
+			<Route path="profile" element={ <ProfileDetails /> } />
 		
 		</Routes>
 	)

@@ -1,13 +1,8 @@
 import { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { Foster } from "./Foster.js"
 
 export const FosterList = () => {
     const [fosters, setFosters] = useState([])
-    const [toggle, setToggle] = useState(false)
-    const navigate = useNavigate()
-
-	const currentPurrfectUser = localStorage.getItem("purrfect_user")
-    const purrfectUserObj = JSON.parse(currentPurrfectUser)
 
     useEffect(
         () => {
@@ -22,51 +17,20 @@ export const FosterList = () => {
         [] // When this array is empty, you are observing initial component state
     )
 
-    // useEffect(
-    //     () => {
-    //         if (toggle) {
-    //             let priceyProducts= products.filter(product => product.price >= 10)
-    //             setProducts(priceyProducts)
-
-    //         } else {
-    //             setProducts(products)
-
-    //         }
-    //     },
-    //     [toggle] // watching value to change
-    // )
-
     return <>
-        {/* {
-            kandyUserObj.staff 
-            ? ( <> 
-                    <center><button className="filter-button" onClick={() => { setToggle(!toggle) }}>
-                        {toggle ? "🍭 All Candy 🍭" : "🍭 Expensive Candy 🍭"}
-                    </button></center>
-                </> ) 
-            : ("")     
-        } */}
         
-        <center><h2>✨ The Fosters ✨</h2></center>
+        <center><div className="title">✨ The Fosters ✨</div></center>
         <article className="fosters">
             {
-                fosters.map(
-                    (foster) => {
-                        return <div className="foster" key={foster.id}>
-                                <img 
-                                    src={foster.imageUrl} 
-                                    alt={foster.name} 
-                                    className="item-img" 
-                                    height="300px"
-                                    width="350x"
-                                />
-
-                                <div className="item-details">
-                                    <b>{foster.name}</b><br></br><br></br>
-                                </div>
-                            </div>
-                    }
-                )
+                fosters.map((foster) => (
+                    <Foster
+                        key={foster.id}
+                        id={foster.id}
+                        name={foster.name}
+                        imgsrc={foster.imageUrl}
+                        alt={foster.name}  
+                    />
+                ))
             }
         </article>
     </>
