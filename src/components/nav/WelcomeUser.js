@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 
-export const ProfileDetails = () => {
-    const [ user, setUser] = useState([])
+export const WelcomeUser = () => {
+    const [user, setUser] = useState([])
 
     const currentPurrfectUser = localStorage.getItem("purrfect_user")
     const purrfectUserObj = JSON.parse(currentPurrfectUser)
@@ -17,24 +17,13 @@ export const ProfileDetails = () => {
         []
     )
 
-    return <section className="profile">
+    return <section className="welcome">
         <center>
-            <div className="userImage">
-            <img 
-                src={user.imageUrl} 
-                alt={user.name} 
-                className="user-img" 
-                height="100px"
-                width="150x"
-            />
-            </div><br></br>
         
             <div className="name">
-                <u>{user.fullName}</u>
+             ✧･ﾟ: *✧･ﾟ:* Welcome {user.fullName} *:･ﾟ✧*:･ﾟ✧
             </div>
-            
-            <div><b>Email:</b> {user.email}</div>
-            <div><b>Adopted:</b> ~ empty ~</div>
+
        </center>
 
     </section>

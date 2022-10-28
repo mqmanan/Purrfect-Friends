@@ -42,7 +42,7 @@ export const MessageForm = () => {
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify(newMessage),
+                    body: JSON.stringify(newMessage), //converts JSON data to JavaScript data
                 })
                     .then((response) => response.json())
                     .then(() => {
@@ -83,7 +83,6 @@ export const MessageForm = () => {
                     <label htmlFor="email">E-mail:</label>
                     <input
                         required
-                        autoFocus
                         id="email"
                         type="text"
                         className="form-control"
@@ -99,7 +98,6 @@ export const MessageForm = () => {
                     <label htmlFor="subject">Subject:</label>
                     <input
                         required
-                        autoFocus
                         id="subject"
                         type="text"
                         className="form-control"
@@ -115,7 +113,6 @@ export const MessageForm = () => {
                     <label htmlFor="body">Body:</label>
                     <textarea
                         required
-                        autoFocus
                         id="body"
                         type="text"
                         style={{

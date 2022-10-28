@@ -13,7 +13,7 @@ export const FosterDetails = () => {
                     setFoster(data)
                 })
         },
-        [ fosterId]
+        [ fosterId ]
     )
 
     return <section className="Foster">

@@ -27,26 +27,7 @@ export const EditFosterForm = () => {
         fosterParentId: 0
     })
 
-    const handleInputChange = (event) => {
-        const copy = { ...foster }
-        copy[event.target.id] = event.target.value
-        updateFoster(copy)
-    }
-
-    useEffect(
-        () => {
-            fetch(`http://localhost:8088/ageRanges`)
-                .then(response => {
-                    return response.json()})
-                .then((ageArray) => {
-                    setAgeRanges(ageArray)
-                    return ageArray
-                })
-        },
-        [] // When this array is empty, you are observing initial component state
-    )
-
-    // TODO: Get foster info from API and update state
+    // this gets specific foster info from API & updates state
     useEffect(() => {
         fetch(`http://localhost:8088/fosters/${fosterId}`)
             .then(response => response.json())
@@ -58,6 +39,19 @@ export const EditFosterForm = () => {
 
     useEffect(
         () => {
+            fetch(`http://localhost:8088/ageRanges`)
+                .then(response => {
+                    return response.json()})
+                .then((ageArray) => {
+                    setAgeRanges(ageArray)
+                    return ageArray
+                })
+        },
+        [] // when this array is empty, you are observing initial component state
+    )
+
+    useEffect(
+        () => {
             fetch(`http://localhost:8088/furPatterns`)
                 .then(response => {
                     return response.json()})
@@ -66,7 +60,7 @@ export const EditFosterForm = () => {
                     return furPatternArray
                 })
         },
-        [] // When this array is empty, you are observing initial component state
+        [] 
     )
 
     useEffect(
@@ -79,7 +73,7 @@ export const EditFosterForm = () => {
                     return hogwartsArray
                 })
         },
-        [] // When this array is empty, you are observing initial component state
+        [] 
     )
 
     useEffect(
@@ -92,28 +86,40 @@ export const EditFosterForm = () => {
                     return parentsArray
                 })
         },
-        [] // When this array is empty, you are observing initial component state
+        []
     )
 
+    const handleInputChange = (event) => {
+        const copy = { ...foster }
+        copy[event.target.id] = event.target.value
+        updateFoster(copy)
+    }
+
+    // function that will DELETE specific foster data and then navigate to fosters page when done
+    // if functions are within a form as a button, you will always need to use preventDefault
+    const deleteButton = (event) => {
+        event.preventDefault()
+        
+        fetch(`http://localhost:8088/fosters/${foster.id}`, {
+            method: "DELETE",
+        })
+            .then(() => {
+                navigate("/fosters")
+            })
+    }
 
 
-
+    // function that will PUT updated data into the API and then navigate to fosters page when done
     const handleSaveButtonClick = (event) => {
         event.preventDefault()
 
-        /*
-            TODO: Perform the PUT fetch() call here to update the information.
-            Navigate user to home page when done.
-        */
-
-        return fetch(`http://localhost:8088/fosters/${foster.id}`, {
+        fetch(`http://localhost:8088/fosters/${foster.id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(foster)
         })
-            .then(response => response.json())
             .then(() => {
                 navigate("/fosters")
             })
@@ -374,10 +380,20 @@ export const EditFosterForm = () => {
                 className="btn-submit" 
                 onClick={(event) => {
                     handleSaveButtonClick(event)
-                    }}
-                >
-                Save Edits
-            </button><br></br><br></br>
+                }}
+            >
+            Save Edits
+            </button><br></br>
+            
+            <button 
+                className="btn-delete"
+                onClick={(event) => {
+                    deleteButton(event)
+                }}
+            >
+            Delete
+            </button>
+            
         </form>
     </>
 }
