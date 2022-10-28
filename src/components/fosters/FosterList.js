@@ -27,8 +27,7 @@ export const FosterList = () => {
                         key={foster.id}
                         id={foster.id}
                         name={foster.name}
-                        imgsrc={foster.imageUrl}
-                        alt={foster.name}  
+                        imgsrc={foster.imageUrl}  
                     />
                 ))
             }

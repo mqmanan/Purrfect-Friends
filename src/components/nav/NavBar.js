@@ -1,6 +1,5 @@
 import { UserNav } from "./UserNav"
 import { FosterParentNav } from "./FosterParentNav"
-import "./NavBar.css"
 
 export const NavBar = () => {
 	

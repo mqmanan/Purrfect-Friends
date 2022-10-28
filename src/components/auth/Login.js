@@ -32,8 +32,9 @@ export const Login = () => {
         <main className="container--login">
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>Purrfect Friends</h1>
-                    <h2>Please sign in</h2>
+                    <div>Purrfect Friends</div><br></br>
+                    <div>Please sign in</div><br></br>
+
                     <fieldset>
                         <label htmlFor="inputEmail"> Email address </label>
                         <input type="email"
@@ -43,16 +44,20 @@ export const Login = () => {
                             placeholder="Enter email adress"
                             required autoFocus />
                     </fieldset>
+
                     <fieldset>
                         <button type="submit">
                             Sign in
                         </button>
                     </fieldset>
+
                 </form>
+
             </section>
             <section className="link--register">
                 <Link to="/register">Not a member yet?</Link>
             </section>
+
         </main>
     )
 }

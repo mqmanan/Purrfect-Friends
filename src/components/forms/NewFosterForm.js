@@ -251,7 +251,7 @@ export const NewFosterForm = () => {
                 <div className="form">
                     <label htmlFor="description">Description:</label>
                     <textarea
-                        required autoFocus
+                        required
                         id="description"
                         type="text"
                         style={{
@@ -284,7 +284,7 @@ export const NewFosterForm = () => {
                 <div className="form">
                     <label htmlFor="vaccine1">FVRCP Vaccine 1:</label>
                     <input
-                        required autoFocus
+                        required 
                         id="fvrcpVaccine1"
                         type="text"
                         className="form-control"
@@ -375,7 +375,6 @@ export const NewFosterForm = () => {
                     <label htmlFor="fosterParent">Foster Parent:</label>
                             <select 
                                 required
-                                autoFocus
                                 id = "fosterParent"
                                 type ="text"
                                 className = "form-control" 
