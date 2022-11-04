@@ -4,7 +4,8 @@ import { NewFosterForm } from "../forms/NewFosterForm"
 import { FosterDetailsParent } from '../fosters/FosterDetailsParent'
 import { EditFosterForm } from '../forms/EditFosterForm'
 import { MessageList } from '../forms/MessgeList'
-import { ProfileDetails } from '../profiles/ProfileDetails'
+import { ParentProfile } from '../profiles/ParentProfile'
+// import { ProfileDetails } from '../profiles/ProfileDetails'
 import { MessageDetails } from '../forms/MessageDetails'
 import { WelcomeUser } from '../nav/WelcomeUser'
 
@@ -21,6 +22,8 @@ export const FosterParentView = () => {
 			</Route>
 
 			<Route path="fosters" element={ <FosterList /> } />
+			
+			<Route path="parents" element={ <></> } />
 
 			<Route path="fosters/:fosterId" element={ <FosterDetailsParent /> } />
 
@@ -32,7 +35,9 @@ export const FosterParentView = () => {
 
 			<Route path="mailbox/:messageId" element={ <MessageDetails /> } />
 
-			<Route path="profile" element={ <ProfileDetails /> } />
+			<Route path="profile" element={ <ParentProfile /> } />
+
+			<Route path="profile/edit" element={ <></> } />
 
 		</Routes>
 	)

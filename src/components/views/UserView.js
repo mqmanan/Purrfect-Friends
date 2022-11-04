@@ -3,6 +3,9 @@ import { FosterList } from "../fosters/FosterList"
 import { FosterDetails } from '../fosters/FosterDetails'
 import { MessageForm } from '../forms/MessageForm'
 import { ProfileDetails } from '../profiles/ProfileDetails'
+import { WelcomeUser } from '../nav/WelcomeUser'
+
+// Route enables the navigation among views of various components in React; allows changing the browser URL
 
 export const UserView = () => {
 	return (
@@ -10,7 +13,7 @@ export const UserView = () => {
 			<Route path="/" element={
 				<>
 				 	<center>
-					<div> Purrfect Friends </div>
+					 <WelcomeUser /> 
 					</center>
 				</>
 			}>

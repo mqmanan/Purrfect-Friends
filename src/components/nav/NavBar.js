@@ -1,17 +1,17 @@
 import { UserNav } from "./UserNav"
 import { FosterParentNav } from "./FosterParentNav"
+import { SlHome } from "react-icons/sl";
 
 export const NavBar = () => {
-	
+
 	const currentPurrfectUser = localStorage.getItem("purrfect_user")
     const purrfectUserObj = JSON.parse(currentPurrfectUser)
 
     if (purrfectUserObj.staff) {
-        // return fosterParent view
+        // returns fosterParent view
         return <FosterParentNav />
     } else {
-        //return user view
+        //returns user view
         return <UserNav />
     }
 }
-

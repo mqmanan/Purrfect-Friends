@@ -132,24 +132,23 @@ export const NewFosterForm = () => {
             })
                 .then((response) => response.json())
                 .then(() => navigate("/fosters"))    
-        } else {
-            alert("Fill out the entire form please!")
+        // } else {
+        //     alert("Fill out the entire form please!")
         }
     }
 
     return (
-        <form className="ticketForm">
-            <div className="ticketForm__title">✨ New Foster ✨</div>
+        <form className="px-5 my-20 max-w-3xl mx-auto space-y-6">
+
+            <div className="text-6xl font-amatic font-bold tracking-wider text-center"> New Foster </div>
 
             <fieldset>
                 <div className="form">
                     <label htmlFor="name">Name:</label>
-                    <input
+                    <input className="border border-slate-300 block w-full py-1 px-2 rounded focus:outline-none focus:border-emerald-400"
                         required
-                        autoFocus
                         id="name"
                         type="text"
-                        className="form-control"
                         placeholder="Foster name"
                         value={userChoices.name}
                         onChange={handleInputChange}
@@ -159,12 +158,11 @@ export const NewFosterForm = () => {
 
             <fieldset>
                 <div className="form">
-                    <label htmlFor="imageUrl">Image UrL:</label>
-                    <input
+                    <label htmlFor="imageUrl">Image Url:</label>
+                    <input className="border border-slate-300 block w-full py-1 px-2 rounded focus:outline-none focus:border-emerald-400"
                         required
                         id="imageUrl"
                         type="text"
-                        className="form-control"
                         placeholder="Example.com"
                         value={userChoices.imageUrl}
                         onChange={handleInputChange} 
@@ -250,14 +248,13 @@ export const NewFosterForm = () => {
             <fieldset>
                 <div className="form">
                     <label htmlFor="description">Description:</label>
-                    <textarea
+                    <textarea className="border border-slate-300 block py-1 px-2 w-full rounded focus:outline-none focus:border-emerald-400"
                         required
                         id="description"
                         type="text"
                         style={{
                             height: "10rem"
                             }}
-                        className="form-control"
                         placeholder="Foster Description"
                         value={userChoices.description}
                         onChange={handleInputChange}
@@ -268,11 +265,10 @@ export const NewFosterForm = () => {
             <fieldset>
                 <div className="form">
                     <label htmlFor="fixed">Birthdate:</label>
-                    <input
+                    <input className="border w-1/2 border-slate-300 block py-1 px-2 rounded focus:outline-none focus:border-emerald-400"
                         required
                         id="dob"
                         type="text"
-                        className="form-control"
                         placeholder="Date of birth"
                         value={userChoices.dob}
                         onChange={handleInputChange}
@@ -283,11 +279,10 @@ export const NewFosterForm = () => {
             <fieldset>
                 <div className="form">
                     <label htmlFor="vaccine1">FVRCP Vaccine 1:</label>
-                    <input
+                    <input className="border w-1/2 border-slate-300 block py-1 px-2 rounded focus:outline-none focus:border-emerald-400"
                         required 
                         id="fvrcpVaccine1"
                         type="text"
-                        className="form-control"
                         placeholder="Date of Vaccine -- if none, type N/A"
                         value={userChoices.fvrcpVaccine1}
                         onChange={handleInputChange}
@@ -298,11 +293,10 @@ export const NewFosterForm = () => {
             <fieldset>
                 <div className="form">
                     <label htmlFor="vaccine2">FVRCP Vaccine 2:</label>
-                    <input
+                    <input className="border w-1/2 border-slate-300 block py-1 px-2 rounded focus:outline-none focus:border-emerald-400"
                         required
                         id="fvrcpVaccine2"
                         type="text"
-                        className="form-control"
                         placeholder="Date of Vaccine -- if none, type N/A"
                         value={userChoices.fvrcpVaccine2}
                         onChange={handleInputChange}
@@ -313,11 +307,10 @@ export const NewFosterForm = () => {
             <fieldset>
                 <div className="form">
                     <label htmlFor="vaccine3">FVRCP Vaccine 3:</label>
-                    <input
+                    <input className="border w-1/2 border-slate-300 block py-1 px-2 rounded focus:outline-none focus:border-emerald-400"
                         required
                         id="fvrcpVaccine3"
                         type="text"
-                        className="form-control"
                         placeholder="Date of Vaccine -- if none, type N/A"
                         value={userChoices.fvrcpVaccine3}
                         onChange={handleInputChange}
@@ -328,11 +321,10 @@ export const NewFosterForm = () => {
             <fieldset>
                 <div className="form">
                     <label htmlFor="vaccine4">FeLV Vaccine:</label>
-                    <input
+                    <input className="border w-1/2 border-slate-300 block py-1 px-2 rounded focus:outline-none focus:border-emerald-400"
                         required
                         id="felvVaccine"
                         type="text"
-                        className="form-control"
                         placeholder="Date of Vaccine -- if none, type N/A"
                         value={userChoices.felvVaccine}
                         onChange={handleInputChange}
@@ -343,11 +335,10 @@ export const NewFosterForm = () => {
             <fieldset>
                 <div className="form">
                     <label htmlFor="vaccine5">Rabies Vaccine:</label>
-                    <input
+                    <input className="border w-1/2 border-slate-300 block py-1 px-2 rounded focus:outline-none focus:border-emerald-400"
                         required
                         id="rabies"
                         type="text"
-                        className="form-control"
                         placeholder="Date of Vaccine -- if none, type N/A"
                         value={userChoices.rabies}
                         onChange={handleInputChange}
@@ -358,11 +349,10 @@ export const NewFosterForm = () => {
             <fieldset>
                 <div className="form">
                     <label htmlFor="fixed">Spayed/Neutured?</label>
-                    <input
+                    <input className="border border-slate-300 block w-full py-1 px-2 rounded focus:outline-none focus:border-emerald-400"
                         required
                         id="spayedNeutered"
                         type="text"
-                        className="form-control"
                         placeholder="Yes or No?"
                         value={userChoices.spayedNeutered}
                         onChange={handleInputChange}
@@ -373,11 +363,10 @@ export const NewFosterForm = () => {
             <fieldset>
                 <div className="form">
                     <label htmlFor="fosterParent">Foster Parent:</label>
-                            <select 
+                            <select className="border w-1/2 border-slate-300 block py-1 px-2 rounded focus:outline-none focus:border-emerald-400"
                                 required
                                 id = "fosterParent"
                                 type ="text"
-                                className = "form-control" 
                                 value={userChoices.fosterParentId} 
                                 onChange={(event) => {
                                     const copy = { ...userChoices }
@@ -387,17 +376,18 @@ export const NewFosterForm = () => {
                             >
                                 <option>✦ Select Foster Parent ✦</option>
                                 {fosterParents.map((fosterParent) => {
-                                    {   
                                     return <option key={fosterParent.id} value={fosterParent.id}>
                                         {fosterParent?.user?.fullName}</option>
                                     }
-                                })}
+                                )}
                             </select>
                     </div>
             </fieldset>
 
             <button 
-                className="btn-submit" 
+                type="button"
+                className="bg-violet-300 rounded-xl px-2 py-1 font-amatic 
+                            tracking-wider text-xl font-bold hover:bg-violet-600 hover:text-white"
                 onClick={(event) => {
                     handleSaveButtonClick(event)
                     }}
