@@ -17,25 +17,25 @@ export const ProfileDetails = () => {
         []
     )
 
-    return <section className="profile">
-        <center>
-            <div className="userImage">
-            <img 
-                src={user.imageUrl} 
-                alt={user.name} 
-                className="user-img" 
-                height="100px"
-                width="150x"
-            />
-            </div><br></br>
-        
-            <div className="name">
-                <u>{user.fullName}</u>
+    return <section className="flex flex-wrap p-44 justify-center">
+
+            <div className="pr-3">
+                <img className="border-4 border-purple-400 rounded-full shadow-md hover:shadow-xl"
+                    src={user.imageUrl} 
+                    alt={user.fullName} 
+                    width="170px"
+                />
             </div>
-            
-            <div><b>Email:</b> {user.email}</div>
-            <div><b>Adopted:</b> ~ empty ~</div>
-       </center>
+        
+            <ul className="mt-6 pl-6 list-none">
+                <li className="font-amatic text-5xl font-bold tracking-wider text-violet-500">
+                    {user.fullName}
+                </li>
+                <li className="mt-2 font-amatic text-4xl tracking-widest hover:list-disc">
+                    <b>Email</b>: {user.email} </li>
+                <li className="font-amatic text-2xl tracking-wider hover:list-square">
+                    <b>Adopted Fosters:</b> {user.adoptedId} </li>
+            </ul>
 
     </section>
 }

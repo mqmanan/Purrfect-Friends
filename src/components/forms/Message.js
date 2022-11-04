@@ -17,7 +17,7 @@ export const Message = ({ message, fosterParents, currentUser, getAllMessages })
     const canDelete = () => {
         if (userFosterParent?.id === assignedFosterParent?.id) {
             return fetch(`http://localhost:8088/messages/${message.id}`, {
-                        method: "DELETE",
+                        method: "DELETE"
                     })
                         .then(() => {
                              getAllMessages()
@@ -26,23 +26,26 @@ export const Message = ({ message, fosterParents, currentUser, getAllMessages })
             } 
         }
 
-    return <div className="message" key={message.id}>
-            <center><br></br>
+    return <>
+    
+        <div className="flex flex-wrap px-20" >
                     
-            <div className="message-details">
-                <Link to={`/mailbox/${message.id}`}><u>Message #{message.id}</u></Link>
-            </div>        
+            <div className="p-5 border border-indigo-500">
 
-            <div className="message-details">
-                <b>From:</b> {message.name}<br></br>
-                <b>Email:</b> {message.email}<br></br>
-            </div>
+                <Link to={`/mailbox/${message.id}`} className="font-amatic text-3xl font-bold hover:tracking-widest hover:text-violet-600">
+                    Message #{message.id}</Link>
+                <span className="block font-biz tracking-wider">
+                    <b>From</b>: {message.name}</span>
+                <span className="block font-biz tracking-wider mb-4">
+                    <b>Subject</b>: {message.subject}</span> 
                     
-            <footer>
+            <footer className="space-x-2 font-amatic text-2xl tracking-wider font-bold">
                 {
                     message.fosterParentMessages.length
-                        ? `${assignedFosterParent !== null ? assignedFosterParent?.user?.fullName : ""} has accepted this message.`
+                        ? `${assignedFosterParent !== null ? assignedFosterParent?.user?.fullName : ""} has accepted this message.......... `
                         : <button
+                            className="bg-violet-300 rounded-xl px-2 py-1 font-amatic
+                                        tracking-wider text-xl font-bold hover:bg-green-600 hover:text-white"
                             onClick={() => {
                                 fetch(`http://localhost:8088/fosterParentMessages`, {
                                     method: "POST",
@@ -63,10 +66,11 @@ export const Message = ({ message, fosterParents, currentUser, getAllMessages })
                             >Reply</button>
                 }
                 {
-                     <button 
-                     className="btn-delete"
-                     onClick={() => {
-                         canDelete()
+                    <button 
+                        className="bg-violet-300 rounded-xl px-2 py-1 font-amatic 
+                                    tracking-wider text-xl font-bold hover:bg-red-600 hover:text-white"
+                        onClick={() => {
+                            canDelete()
                         }}
                     >
                     Delete
@@ -74,6 +78,7 @@ export const Message = ({ message, fosterParents, currentUser, getAllMessages })
                 }
 
             </footer>
-         </center>
-     </div>
+            </div>
+        </div><br></br>
+     </>
 }
