@@ -1,6 +1,11 @@
 import { useState, useEffect } from "react"
+import { Player } from '@lottiefiles/react-lottie-player'
 
 export const WelcomeUser = () => {
+
+    // let Cat1 = require("../animate/Cat1.gif")
+
+
     const [user, setUser] = useState([])
 
     const currentPurrfectUser = localStorage.getItem("purrfect_user")
@@ -14,15 +19,15 @@ export const WelcomeUser = () => {
                     setUser(data)
                 })
         },
-        []
+        [purrfectUserObj.id]
     )
 
-    return <section className="mt-8 p-5">
+    return <section className="p-10 place-content-center">
 
         <center>
             <div className="">
 
-                <div className="grid gap-8 items-start justify-center mb-7">
+                <div className="grid gap-8 items-start justify-center mb-5">
                     <div className="relative group">
                         <button className="absolute -inset-1 bg-gradient-to-r from-purple-900 to-indigo-600 rounded-xl blur opacity-70 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></button>
 
@@ -61,9 +66,9 @@ export const WelcomeUser = () => {
                     </div>
                 </div>
 
-                <div className="flex flex-wrap place-content-evenly">
+                <div className="flex flex-wrap">
 
-                    <div className="mt-10">
+                    {/* <div className="mt-10">
                     <img className="border-dashed border-4 border-teal-400 rounded-xl shadow-lg 
                      hover:shadow-emerald-700"
                             src="https://www.goodmews.org/wp-content/uploads/donate-3.png" 
@@ -77,16 +82,31 @@ export const WelcomeUser = () => {
                             src="https://www.goodmews.org/wp-content/uploads/adopt-3.png" 
                             alt="adopt"
                             width="310" />
-                    </div>
+                    </div> */}
+
+                    {/* <img src={Cat1} alt="Kitty" width="150px" /> */}
+
+                    <Player
+                        src='https://assets1.lottiefiles.com/packages/lf20_dopee6e0.json'
+                        className="absolute left-1/4 bottom drop-shadow-lg opacity-60"
+                        loop
+                        autoplay
+                        style={{ height: '700px', width: '700px' }}
+                    />
+                  
 
                 </div>
                 
                 <div className="flex flex-wrap place-content-evenly">
 
-                    {/* <div className="text-3xl">
-                        <span>your support saves lives</span> 
-                        <span>-- With your support, we can continue finding good homes for good kitties. See the many ways you can help.</span>          
-                    </div> */}
+                    <div className="absolute inset-y-1/3 inset-x-auto right-54 border border-violet-400 rounded 
+                                    text-xl font-biz tracking-wide">
+                        <span className="block">your support saves lives</span> 
+                        <span className="block">-- With your support, we can continue finding good homes for good kitties. See the many ways you can help.</span>    
+                        <span className="block">-- With your support, we can continue finding good homes for good kitties. See the many ways you can help.</span>   
+                        <span className="block">-- With your support, we can continue finding good homes for good kitties. See the many ways you can help.</span>   <span className="block">-- With your support, we can continue finding good homes for good kitties. See the many ways you can help.</span>   
+                        <span className="block">-- With your support, we can continue finding good homes for good kitties. See the many ways you can help.</span>         
+                    </div>
                 
                     {/* <div className="text-3xl">
                     <span>adopt a forever friend </span>--  

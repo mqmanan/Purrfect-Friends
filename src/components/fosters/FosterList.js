@@ -27,10 +27,10 @@ export const FosterList = () => {
         
         <center><div className="pl-8 bg-white">
                 <img
-                src="https://c.bonfireassets.com/static/stores/e47b/8060/22e8-4839-99ea-7452ba6f8e69/uploads/7e0ff6b0-f19a-4422-87c7-191d4a1b9b25.jpg" width="250" />
+                src="https://c.bonfireassets.com/static/stores/e47b/8060/22e8-4839-99ea-7452ba6f8e69/uploads/7e0ff6b0-f19a-4422-87c7-191d4a1b9b25.jpg" alt="Foster" width="250" />
             </div></center>
 
-        <div className="flex flex-wrap place-content-evenly pl-9 pr-2 mb-0 bg-white">
+        <div className="flex flex-wrap place-content-evenly pl-9 pr-2 bg-white">
             {
                 fosters.map(
                     (foster) => (<Foster

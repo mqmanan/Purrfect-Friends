@@ -14,7 +14,7 @@ export const ProfileDetails = () => {
                     setUser(data)
                 })
         },
-        []
+        [purrfectUserObj.id]
     )
 
     return <section className="flex flex-wrap p-44 justify-center">

@@ -81,7 +81,7 @@ export const Register = (props) => {
                         <input className="p-2 mt-1 rounded-lg border border-violet-400 focus:outline-none focus:border-violet-900 tracking-wider"
                                onChange={updateCustomer}
                                type="email" id="email"
-                               placeholder="🐾 Enter Email Address" required />
+                               placeholder="Enter Email Address" required />
                     </fieldset>
                 
                     <fieldset className="py-2 px-2 mt-2">

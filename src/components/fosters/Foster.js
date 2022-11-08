@@ -13,12 +13,13 @@ export const Foster = ({ id, foster }) => {
                 <Link to={`/fosters/${id}`} >
                     <img className="rounded-t-xl" 
                          src={foster.imageUrl}
+                         alt="foster"
                          width="230px" 
                     />
                 </Link>
             </div>
 
-            <div className="text-purple-700 mb-10 font-bold text-center font-amatic text-3xl tracking-wider">
+            <div className="text-purple-700 mb-10 font-extrabold text-center font-amatic text-3xl tracking-widest">
                 <Link to={`/fosters/${id}`} >
                     {foster.name}
                 </Link>
