@@ -20,9 +20,9 @@ export const ParentProfile = () => {
     [purrfectUserObj.id])
 
     return (
-        <section className="flex flex-wrap p-44 justify-center">
+        <section className="flex flex-wrap p-40 justify-center">
 
-            <div className="mt-5 pr-3">
+            <div className="mt-5 pr-2">
                     <img className="border-4 border-purple-400 rounded-full shadow-md hover:shadow-xl"
                         src={fosterParent?.user?.imageUrl} 
                         alt={fosterParent?.user?.fullName} 
@@ -30,22 +30,22 @@ export const ParentProfile = () => {
                     />
             </div>
 
-            <ul className="mt-10 pl-6 list-none">
+            <ul className="mt-9 pl-5 list-none">
                 <li className="font-amatic text-5xl font-bold tracking-wider">
                     {fosterParent?.user?.fullName}
                 </li>
-                <li className="mt-2 font-amatic text-3xl tracking-widest">
+                <li className="mt-2 font-amatic text-4xl tracking-widest mb-2">
                     <b>Email:</b> {fosterParent?.user?.email} </li>
-                <li className="font-amatic text-3xl tracking-widest">
+                <li className="font-amatic text-3xl tracking-widest mb-2">
                     <b>Phone Number:</b> {fosterParent.phoneNumber} </li>
-                <li className="font-amatic text-2xl tracking-wider">
+                <li className="font-amatic text-3xl tracking-wider mb-2">
                     <b>Start Date:</b> {fosterParent.startDate} </li>
-                <li className="font-amatic text-2xl tracking-wider">
+                <li className="font-amatic text-3xl tracking-wider">
                     <b>Adopted Fosters:</b> {fosterParent?.user?.adoptedId} </li>
 
                 <button className="bg-violet-300 rounded-xl text-black py-1 px-3 mt-5 font-amatic text-xl
                         hover:bg-pink-500 hover:tracking-widest hover:font-bold hover:text-white 
-                        font-bold tracking-wider"
+                        font-bold tracking-wider hover:text-2xl"
                         type="submit"
                         onClick={() => {
                             navigate("/profile/edit")

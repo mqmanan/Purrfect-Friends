@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { Message } from "./Message.js" 
+import { Player } from '@lottiefiles/react-lottie-player'
 
 export const MessageList = () => {
     const [messages, setMessages] = useState([])
@@ -38,17 +39,23 @@ export const MessageList = () => {
 
     return <>
         
-        <div className="p-10">
+        <div className="text-center">
 
-            <div className="text-5xl font-amatic font-bold tracking-wider text-center mb-5"> 
-            📬 Mailbox 📬
+            <div className="">
+                <Player
+                    src='https://assets3.lottiefiles.com/packages/lf20_rbajkB.json'
+                    className="absolute left-56 bottom-1"
+                    loop
+                    autoplay
+                    style={{ height: '600px', width: '500px' }}
+                />
             </div>
 
             {/* <div className="flex mt-10 pr-3 pl-20 place-content-center">
                     <img className="rounded-3xl shadow-lg" src="https://c8p9p3e5.rocketcdn.me/wp-content/uploads/2021/09/we-just-got-a-letter-mail-meme-blues-clues-song.jpeg" alt="mail" width="350"/>
                 </div> */}
 
-                <article className="flex flex-col place-content-evenly">
+                <article className="absolute left-1/2 top-16">
                 {
                     messages.map(
                         (message) => <Message 

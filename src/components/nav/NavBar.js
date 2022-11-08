@@ -1,6 +1,5 @@
 import { UserNav } from "./UserNav"
 import { FosterParentNav } from "./FosterParentNav"
-import { SlHome } from "react-icons/sl";
 
 export const NavBar = () => {
 

@@ -48,7 +48,7 @@ export const Login = () => {
                             type="email"
                             value={email}
                             onChange={evt => set(evt.target.value)}
-                            placeholder="🐾 Enter Email Address"
+                            placeholder="Enter Email Address"
                             required />
                     </fieldset>
 
@@ -60,7 +60,7 @@ export const Login = () => {
                         </button>
                     </fieldset>
 
-                    <section className="hover:text-indigo-500 hover:text-3xl hover:tracking-widest
+                    <section className="hover:text-indigo-500 hover:text-2xl hover:tracking-widest
                             py-2 px-1 mt-10 tracking-wide text-xl font-bold font-amatic">
                         <Link to="/register">Not a member yet?</Link>
                     </section>

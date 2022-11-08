@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 export const MessageForm = () => {
@@ -129,6 +129,7 @@ export const MessageForm = () => {
                         type="submit"
                         onClick={(event) => {
                         handleSaveButtonClick(event)
+                        navigate("/")
                         }}
                     >
                     Send  ✉

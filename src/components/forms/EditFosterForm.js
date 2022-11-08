@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import { useParams, useNavigate } from "react-router-dom"
+import { Player } from '@lottiefiles/react-lottie-player'
 
 export const EditFosterForm = () => {
     const { fosterId } = useParams()
@@ -35,7 +36,7 @@ export const EditFosterForm = () => {
                 updateFoster(data)
             })
     },
-    [])
+    [fosterId])
 
     useEffect(
         () => {
@@ -127,14 +128,29 @@ export const EditFosterForm = () => {
 
     return <>
 
-        <form className="px-5 my-20 max-w-3xl mx-auto space-y-6">
+    <div class="relative inset-0 w-full md:fixed md:w-5/12">
+        <span class="absolute bottom-16 left-16 p-20 text-black text-8xl 
+            font-amatic font-bold tracking-wide">
+            Update Foster
+        </span>
+        <Player
+            src='https://assets8.lottiefiles.com/private_files/lf30_bwykk9xb.json'
+            className="object-cover w-full h-full items-center"
+            loop
+            autoplay
+            style={{ height: '450px', width: '450px' }}
+        />
+    </div>
 
-        <div className="text-6xl font-amatic font-bold tracking-wider text-center"> Update Foster </div>
+        <div class="w-full ml-auto md:w-7/12">
+            <div class="flex flex-col items-left justify-center bg-purple-200 px-10 py-7">
+
+        <form className="font-biz space-y-5">
             
             <fieldset>
                 <div className="form">
-                    <label htmlFor="name">Name:</label>
-                    <input className="border border-slate-300 block w-full py-1 px-2 rounded focus:outline-none focus:border-emerald-400"
+                    <label htmlFor="name" className="font-bold text-lg ml-1">Name:</label>
+                    <input className="border border-slate-300 block w-full py-1 px-2 rounded-xl focus:outline-none focus:border-violet-400"
                         required
                         autoFocus
                         id="name"
@@ -147,8 +163,8 @@ export const EditFosterForm = () => {
 
             <fieldset>
                 <div className="form">
-                    <label htmlFor="imageUrl">Image UrL:</label>
-                    <input className="border border-slate-300 block w-full py-1 px-2 rounded focus:outline-none focus:border-emerald-400"
+                    <label htmlFor="imageUrl" className="font-bold text-lg ml-1">Image UrL:</label>
+                    <input className="border border-slate-300 block w-full py-1 px-2 rounded-xl focus:outline-none focus:border-violet-400"
                         required
                         id="imageUrl"
                         type="text"
@@ -160,12 +176,12 @@ export const EditFosterForm = () => {
 
             <fieldset>
                 <div className="form">
-                    <div>Age:</div>
+                    <div className="font-bold text-lg">Age:</div>
                     {ageRanges.map((ageRange) => {
                         return (
                             <div key={ageRange.id} className="radio">
                                 <label>
-                                    <input 
+                                    <input className="focus:ring-pink-500 text-violet-500 mr-2" 
                                     type ="radio" 
                                     value={ageRange.id} 
                                     checked={foster.ageRangeId === ageRange.id}
@@ -185,12 +201,12 @@ export const EditFosterForm = () => {
 
             <fieldset>
                 <div className="form">
-                    <div>Fur Pattern:</div>
+                    <div className="font-bold text-lg">Fur Pattern:</div>
                     {furPatterns.map((furPattern) => {
                         return (
                             <div key={furPattern.id} className="radio">
                                 <label>
-                                    <input 
+                                <input className="focus:ring-pink-500 text-violet-500 mr-2"
                                     type ="radio" 
                                     value={furPattern.id} 
                                     checked={foster.furPatternId === furPattern.id}
@@ -210,12 +226,12 @@ export const EditFosterForm = () => {
 
             <fieldset>
                 <div className="form">
-                    <div>Hogwart House:</div>
+                    <div className="font-bold text-lg">Hogwart House:</div>
                     {hogwartHouses.map((hogwartHouse) => {
                         return (
                             <div key={hogwartHouse.id} className="radio">
                                 <label>
-                                    <input 
+                                <input className="focus:ring-pink-500 text-violet-500 mr-2" 
                                     type ="radio" 
                                     value={hogwartHouse.id} 
                                     checked={foster.hogwartHouseId === hogwartHouse.id}
@@ -235,9 +251,9 @@ export const EditFosterForm = () => {
 
             <fieldset>
                 <div className="form">
-                    <label htmlFor="description">Description:</label>
-                    <textarea className="border border-slate-300 block w-full py-1 px-2 rounded focus:outline-none focus:border-emerald-400"
-                        required autoFocus
+                    <label htmlFor="description" className="font-bold text-lg ml-1">Description:</label>
+                    <textarea className="border border-slate-300 block w-full py-1 px-2 rounded-xl focus:outline-none focus:border-violet-400"
+                        required
                         id="description"
                         type="text"
                         style={{
@@ -251,8 +267,8 @@ export const EditFosterForm = () => {
 
             <fieldset>
                 <div className="form">
-                    <label htmlFor="fixed">Birthdate:</label>
-                    <input className="border border-slate-300 block w-full py-1 px-2 rounded focus:outline-none focus:border-emerald-400"
+                    <label htmlFor="fixed" className="font-bold text-lg ml-1">Birthdate:</label>
+                    <input className="border border-slate-300 block w-full py-1 px-2 rounded-xl focus:outline-none focus:border-violet-400"
                         required
                         id="dob"
                         type="text"
@@ -264,9 +280,9 @@ export const EditFosterForm = () => {
 
             <fieldset>
                 <div className="form">
-                    <label htmlFor="vaccine1">FVRCP Vaccine 1:</label>
-                    <input className="border border-slate-300 block w-full py-1 px-2 rounded focus:outline-none focus:border-emerald-400"
-                        required autoFocus
+                    <label htmlFor="vaccine1" className="font-bold text-lg ml-1">FVRCP Vaccine 1:</label>
+                    <input className="border border-slate-300 block w-full py-1 px-2 rounded-xl focus:outline-none focus:border-violet-400"
+                        required
                         id="fvrcpVaccine1"
                         type="text"
                         value={foster.fvrcpVaccine1}
@@ -277,8 +293,8 @@ export const EditFosterForm = () => {
 
             <fieldset>
                 <div className="form">
-                    <label htmlFor="vaccine2">FVRCP Vaccine 2:</label>
-                    <input className="border border-slate-300 block w-full py-1 px-2 rounded focus:outline-none focus:border-emerald-400"
+                    <label htmlFor="vaccine2" className="font-bold text-lg ml-1">FVRCP Vaccine 2:</label>
+                    <input className="border border-slate-300 block w-full py-1 px-2 rounded-xl focus:outline-none focus:border-violet-400"
                         required
                         id="fvrcpVaccine2"
                         type="text"
@@ -290,8 +306,8 @@ export const EditFosterForm = () => {
 
             <fieldset>
                 <div className="form">
-                    <label htmlFor="vaccine3">FVRCP Vaccine 3:</label>
-                    <input className="border border-slate-300 block w-full py-1 px-2 rounded focus:outline-none focus:border-emerald-400"
+                    <label htmlFor="vaccine3" className="font-bold text-lg ml-1">FVRCP Vaccine 3:</label>
+                    <input className="border border-slate-300 block w-full py-1 px-2 rounded-xl focus:outline-none focus:border-violet-400"
                         required
                         id="fvrcpVaccine3"
                         type="text"
@@ -303,8 +319,8 @@ export const EditFosterForm = () => {
 
             <fieldset>
                 <div className="form">
-                    <label htmlFor="vaccine4">FeLV Vaccine:</label>
-                    <input className="border border-slate-300 block w-full py-1 px-2 rounded focus:outline-none focus:border-emerald-400"
+                    <label htmlFor="vaccine4" className="font-bold text-lg ml-1">FeLV Vaccine:</label>
+                    <input className="border border-slate-300 block w-full py-1 px-2 rounded-xl focus:outline-none focus:border-violet-400"
                         required
                         id="felvVaccine"
                         type="text"
@@ -316,8 +332,8 @@ export const EditFosterForm = () => {
 
             <fieldset>
                 <div className="form">
-                    <label htmlFor="vaccine5">Rabies Vaccine:</label>
-                    <input className="border border-slate-300 block w-full py-1 px-2 rounded focus:outline-none focus:border-emerald-400"
+                    <label htmlFor="vaccine5" className="font-bold text-lg ml-1">Rabies Vaccine:</label>
+                    <input className="border border-slate-300 block w-full py-1 px-2 rounded-xl focus:outline-none focus:border-violet-400"
                         required
                         id="rabies"
                         type="text"
@@ -329,8 +345,8 @@ export const EditFosterForm = () => {
 
             <fieldset>
                 <div className="form">
-                    <label htmlFor="fixed">Spayed/Neutured?</label>
-                    <input className="border border-slate-300 block w-full py-1 px-2 rounded focus:outline-none focus:border-emerald-400"
+                    <label htmlFor="fixed" className="font-bold text-lg ml-1">Spayed/Neutured?</label>
+                    <input className="border border-slate-300 block w-full py-1 px-2 rounded-xl focus:outline-none focus:border-violet-400"
                         required
                         id="spayedNeutered"
                         type="text"
@@ -342,8 +358,8 @@ export const EditFosterForm = () => {
 
             <fieldset>
                 <div className="form">
-                    <label htmlFor="fosterParent">Foster Parent:</label>
-                            <select className="border w-1/2 border-slate-300 block py-1 px-2 rounded focus:outline-none focus:border-emerald-400"
+                    <label htmlFor="fosterParent" className="font-bold text-lg ml-1">Foster Parent:</label>
+                            <select className="border w-full border-slate-300 block py-1 px-2 mb-3 rounded-xl focus:outline-none focus:border-violet-400"
                                 required
                                 id = "fosterParent"
                                 type ="text"
@@ -366,23 +382,38 @@ export const EditFosterForm = () => {
             </fieldset>
 
             <button 
-                className="mr-2 bg-violet-500 py-2 px-4 text-white rounded"
+                className="bg-violet-300 px-2 py-1 text-black rounded-xl font-amatic text-xl 
+                   font-extrabold hover:bg-emerald-600 hover:text-white tracking-wider mr-2"
                 onClick={(event) => {
                     handleSaveButtonClick(event)
                 }}
             >
-            Save Edits
+            Update
             </button>
             
             <button 
-                className="bg-violet-500 py-2 px-4 text-white rounded"
+                className="bg-violet-300 px-2 py-1 text-black rounded-xl font-amatic text-xl 
+                   font-extrabold hover:bg-red-600 hover:text-white tracking-wider mr-2"
                 onClick={(event) => {
                     deleteButton(event)
                 }}
             >
             Delete
             </button>
+
+            <button 
+                type="button"
+                className="bg-violet-300 px-2 py-1 text-black rounded-xl font-amatic text-xl 
+                            font-extrabold hover:bg-violet-600 hover:text-white tracking-wider"
+                onClick={() => {
+                    navigate("/")
+                }}
+            >
+            Home
+            </button>
             
         </form>
+        </div>
+        </div>
     </>
 }

@@ -62,11 +62,11 @@ export const FosterDetailsParent = () => {
                 <div className="px-6 py-5 absolute left-64 font-biz shadow-md
                     border-4 rounded-2xl border-violet-500 bg-violet-300 text-slate-800">
                     <div className="font-amatic text-4xl text-violet-600 mb-3"><b>Vaccinations</b></div>
-                    <div className="text-lg mb-4"><b>FVRCP 1</b> - {foster.fvrcpVaccine1}</div>
-                    <div className="text-lg mb-4"><b>FVRCP 2</b> - {foster.fvrcpVaccine2}</div>
-                    <div className="text-lg mb-4"><b>FVRCP 3</b> - {foster.fvrcpVaccine3}</div>
-                    <div className="text-lg mb-4"><b>FeLV </b> - {foster.felvVaccine}</div>
-                    <div className="text-lg"><b>Rabies </b> - {foster.rabies}</div>
+                    <div className="text-lg mb-4"><b>FVRCP 1</b> ➡ {foster.fvrcpVaccine1}</div>
+                    <div className="text-lg mb-4"><b>FVRCP 2</b> ➡ {foster.fvrcpVaccine2}</div>
+                    <div className="text-lg mb-4"><b>FVRCP 3</b> ➡ {foster.fvrcpVaccine3}</div>
+                    <div className="text-lg mb-4"><b>FeLV </b> ➡ {foster.felvVaccine}</div>
+                    <div className="text-lg"><b>Rabies </b> ➡ {foster.rabies}</div>
                 </div>
 
                 <div className="absolute right-60 top-20">
