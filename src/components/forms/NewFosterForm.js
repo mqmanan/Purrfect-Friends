@@ -426,6 +426,7 @@ export const NewFosterForm = () => {
                 text-xl font-bold hover:bg-violet-600 hover:text-white hover:animate-bounce"
     onClick={() => {
         navigate("/")
+        window.scrollTo({top: 0, left: 0, behavior: 'smooth'})
         }}
     >
     Home

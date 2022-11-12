@@ -25,12 +25,7 @@ export const FilterFostersUsers = () => {
                     setFosterHouses(hogwartsArray)
                     return hogwartsArray
                 })
-        },
-        [] // When this array is empty, you are observing initial component state
-    )
 
-    useEffect(
-        () => {
             fetch(`http://localhost:8088/fosters?_expand=ageRange`)
                 .then(response => {
                     return response.json()})
@@ -38,12 +33,7 @@ export const FilterFostersUsers = () => {
                     setFosterAges(ageArray)
                     return ageArray
                 })
-        },
-        [] // When this array is empty, you are observing initial component state
-    )
 
-    useEffect(
-        () => {
             fetch(`http://localhost:8088/fosters`)
                 .then(response => {
                     return response.json()})
@@ -54,7 +44,7 @@ export const FilterFostersUsers = () => {
         },
         [] // When this array is empty, you are observing initial component state
     )
-
+ 
     useEffect(() => {
         setFilteredFosters(fosters)
     },
@@ -121,11 +111,11 @@ export const FilterFostersUsers = () => {
         <div className="pl-12 bg-white">
 
                 <Player
-                    src='https://assets1.lottiefiles.com/packages/lf20_ZBTZ9Ris1z.json'
+                    src='https://assets1.lottiefiles.com/private_files/lf30_r6ekydbm.json'
                     className=""
                     loop
                     autoplay
-                    style={{ height: '265px', width: '265px' }}
+                    style={{ height: '255px', width: '255px' }}
                 />
             
 
@@ -238,8 +228,7 @@ export const FilterFostersUsers = () => {
             }
         </div>
 
-        <footer className="text-violet-100 font-biz text-xs text-center pt-3 pb-2 bg-white">
+        <footer className="text-violet-100 font-biz text-xs text-center pt-3 pb-5 bg-white">
             ⓒ Purrfect Friends 2022</footer>
-
     </>
 }

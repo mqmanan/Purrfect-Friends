@@ -371,12 +371,11 @@ export const EditFosterForm = () => {
                                 }}
                             >
                                 <option>✦ Select Foster Parent ✦</option>
-                                {fosterParents.map((fosterParent) => {
-                                    {   
+                                {fosterParents.map((fosterParent) => {  
                                     return <option key={fosterParent.id} value={fosterParent.id}>
                                         {fosterParent?.user?.fullName}</option>
                                     }
-                                })}
+                                )}
                             </select>
                     </div>
             </fieldset>
@@ -407,6 +406,7 @@ export const EditFosterForm = () => {
                             font-extrabold hover:bg-violet-600 hover:text-white tracking-wider"
                 onClick={() => {
                     navigate("/")
+                    window.scrollTo({top: 0, left: 0, behavior: 'smooth'})
                 }}
             >
             Home
