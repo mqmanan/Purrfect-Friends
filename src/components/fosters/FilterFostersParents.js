@@ -108,7 +108,7 @@ export const FilterFostersParents = () => {
         </div>
         </center>
 
-        <div className="flex flex-wrap place-content-center pl-24 pr-10 pb-2 pt-3 bg-white">
+        <div className="flex flex-wrap place-content-center pl-24 pr-10 pt-3 pb-4 bg-white">
             {
                 filteredFosters.map(
                     (foster) => {
@@ -148,7 +148,7 @@ export const FilterFostersParents = () => {
             }
         </div>
 
-        <footer className="text-violet-100 font-biz text-xs text-center pt-2 pb-1 bg-white">
+        <footer className="text-gray-100 font-biz text-xs text-center pt-2 pb-11 bg-white">
             ⓒ Purrfect Friends 2022</footer>
     </>
 }
