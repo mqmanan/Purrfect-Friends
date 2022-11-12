@@ -7,8 +7,8 @@ import { ParentProfile } from '../profiles/ParentProfile'
 import { MessageDetails } from '../forms/MessageDetails'
 import { WelcomeUser } from '../nav/WelcomeUser'
 import { FilterFostersParents } from '../fosters/FilterFostersParents'
-import { ParentList } from '../ParentFoster/ParentList'
 import { EditProfile } from '../profiles/EditProfile'
+import { SearchContainer } from '../ParentFoster/SearchContainer'
 
 export const FosterParentView = () => {
 	return (
@@ -24,7 +24,7 @@ export const FosterParentView = () => {
 
 			<Route path="fosters" element={ <FilterFostersParents /> } />
 			
-			<Route path="parents" element={ <ParentList/> } />
+			<Route path="parents" element={ <SearchContainer /> } />
 
 			<Route path="fosters/:fosterId" element={ <FosterDetailsParent /> } />
 
