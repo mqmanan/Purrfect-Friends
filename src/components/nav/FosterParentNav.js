@@ -1,11 +1,10 @@
 import { Link, useNavigate } from "react-router-dom"
-import { MdOutlineCatchingPokemon } from "react-icons/md"
-import { TfiGithub } from "react-icons/tfi"
+import { GiHouse } from "react-icons/gi"
 import { GiArchiveRegister } from "react-icons/gi"
 import { BsMailbox2 } from "react-icons/bs"
 import { GiCat } from "react-icons/gi"
-import { GiSaberToothedCatHead } from "react-icons/gi";
 import { FaHandPeace } from "react-icons/fa"
+import { FaUsers } from "react-icons/fa"
 
 export const FosterParentNav = () => {
     const navigate = useNavigate()
@@ -14,17 +13,17 @@ export const FosterParentNav = () => {
         <div className="fixed top-0 left-0 h-screen w-16 m-0 flex flex-col bg-purple-300 shadow-lg">
         
             <Link className="navbar-link" to="/">
-            <NavBarHome icon={<MdOutlineCatchingPokemon size="30" />} />
+            <NavBarHome icon={<GiHouse size="30" />} />
+            </Link>
+
+            <Link className="navbar__link" to="/parents">
+            <NavBarFosterParents icon={<FaUsers size="30" />} />
             </Link>
             
             <Link className="navbar-link" to="/fosters">
             <NavBarFosters icon={<GiCat size="30" to="/fosters" />} />    
             </Link>
 
-            <Link className="navbar__link" to="/parents">
-            <NavBarFosterParents icon={<GiSaberToothedCatHead size="30" />} />
-            </Link>
-          
             <Link className="navbar-link" to="/create">
             <NavBarCreate icon={<GiArchiveRegister size="30" />} />
             </Link>
@@ -32,10 +31,10 @@ export const FosterParentNav = () => {
             <Link className="navbar-link" to="/mailbox">
             <NavBarMailbox icon={<BsMailbox2 size="30" />} />
             </Link>
-           
-            <Link className="navbar-link" to="/profile">
+
+            {/* <Link className="navbar-link" to="/profile">
             <NavBarProfile icon={<TfiGithub size="30" />} />
-            </Link>
+            </Link> */}
            
             {
                 localStorage.getItem("purrfect_user")
@@ -82,7 +81,7 @@ const NavBarFosterParents = ({ icon, text = 'Meet the Parents' }) => (
     </div>
 )
 
-const NavBarCreate = ({ icon, text = 'New Foster Form' }) => (
+const NavBarCreate = ({ icon, text = 'New Foster' }) => (
     <div className="navbar-icon group">
         {icon}
 
@@ -93,7 +92,7 @@ const NavBarCreate = ({ icon, text = 'New Foster Form' }) => (
     </div>
 )
 
-const NavBarMailbox = ({ icon, text = 'Mailbox' }) => (
+const NavBarMailbox = ({ icon, text = 'Mail' }) => (
     <div className="navbar-icon group">
         {icon}
 
@@ -104,18 +103,18 @@ const NavBarMailbox = ({ icon, text = 'Mailbox' }) => (
     </div>
 )
 
-const NavBarProfile = ({ icon, text = 'Profile' }) => (
-    <div className="navbar-icon group">
-        {icon}
+// const NavBarProfile = ({ icon, text = 'Profile' }) => (
+//     <div className="navbar-icon group">
+//         {icon}
 
-    <span className="navbar-details group-hover:scale-100">
-        {text}
-    </span>
+//     {/* <span className="navbar-details group-hover:scale-100">
+//         {text}
+//     </span> */}
 
-    </div>
-)
+//     </div>
+// )
 
-const NavBarLogOut = ({ icon, text = 'Peace Out' }) => (
+const NavBarLogOut = ({ icon, text = 'Peace' }) => (
     <div className="navbar-icon group">
         {icon}
 

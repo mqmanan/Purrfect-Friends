@@ -74,7 +74,7 @@ export const Register = (props) => {
                         <input className="p-2 mt-3 rounded-lg border border-violet-400 focus:outline-none focus:border-violet-900 tracking-wider"
                                onChange={updateCustomer}
                                type="text" id="fullName" 
-                               placeholder="🐾 Enter Your Name" required />
+                               placeholder="Enter Your Name" required />
                     </fieldset>
                 
                     <fieldset className="flex flex-col gap-3 mt-2 font-biz text-xl">

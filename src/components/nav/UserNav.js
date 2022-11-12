@@ -1,9 +1,8 @@
 import { Link, useNavigate } from "react-router-dom"
-import { MdOutlineCatchingPokemon } from "react-icons/md"
-import { TfiGithub } from "react-icons/tfi"
 import { BiMailSend } from "react-icons/bi"
 import { GiCat } from "react-icons/gi"
 import { FaHandPeace } from "react-icons/fa"
+import { GiHouse } from "react-icons/gi"
 
 export const UserNav = () => {
     const navigate = useNavigate()
@@ -12,7 +11,7 @@ export const UserNav = () => {
         <div className="fixed top-0 left-0 h-screen w-16 m-0 flex flex-col bg-purple-300 shadow-lg">
         
             <Link className="navbar-link" to="/">
-            <NavBarHome icon={<MdOutlineCatchingPokemon size="30" />} />
+            <NavBarHome icon={<GiHouse size="30" />} />
             </Link>
             
             <Link className="navbar-link" to="/fosters">
@@ -21,10 +20,6 @@ export const UserNav = () => {
 
             <Link className="navbar__link" to="/contact">
             <NavBarContact icon={<BiMailSend size="30" />} />
-            </Link>
-           
-            <Link className="navbar-link" to="/profile">
-            <NavBarProfile icon={<TfiGithub size="30" />} />
             </Link>
            
             {
@@ -42,10 +37,10 @@ export const UserNav = () => {
 const NavBarHome = ({ icon, text = 'Home' }) => (
     <div className="navbar-icon group">
         {icon}
-
+ 
     <span className="navbar-details group-hover:scale-100">
         {text}
-    </span>
+    </span> 
 
     </div>
 )
@@ -72,18 +67,18 @@ const NavBarContact = ({ icon, text = 'Contact Us' }) => (
     </div>
 )
 
-const NavBarProfile = ({ icon, text = 'Profile' }) => (
-    <div className="navbar-icon group">
-        {icon}
+// const NavBarProfile = ({ icon, text = 'Profile' }) => (
+//     <div className="navbar-icon group">
+//         {icon}
 
-    <span className="navbar-details group-hover:scale-100">
-        {text}
-    </span>
+//     <span className="navbar-details group-hover:scale-100">
+//         {text}
+//     </span>
 
-    </div>
-)
+//     </div>
+// )
 
-const NavBarLogOut = ({ icon, text = 'Peace Out' }) => (
+const NavBarLogOut = ({ icon, text = 'Peace' }) => (
     <div className="navbar-icon group">
         {icon}
 

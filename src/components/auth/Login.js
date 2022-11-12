@@ -53,8 +53,8 @@ export const Login = () => {
                     </fieldset>
 
                     <fieldset>
-                        <button className="rounded-xl font-bold text-black bg-indigo-400 border py-1 px-3 mt-2 text-2xl
-                                hover:bg-indigo-300 hover:text-black font-amatic"
+                        <button className="rounded-xl font-bold text-black bg-indigo-400 py-1 px-3       
+                                mt-2 text-2xl hover:bg-purple-400 hover:text-black font-amatic"
                             type="submit">
                             Sign In
                         </button>

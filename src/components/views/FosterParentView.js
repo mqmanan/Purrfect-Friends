@@ -1,13 +1,14 @@
 import { Route, Routes } from 'react-router-dom'
-import { FosterList } from "../fosters/FosterList"
 import { NewFosterForm } from "../forms/NewFosterForm"
 import { FosterDetailsParent } from '../fosters/FosterDetailsParent'
 import { EditFosterForm } from '../forms/EditFosterForm'
 import { MessageList } from '../forms/MessgeList'
 import { ParentProfile } from '../profiles/ParentProfile'
-// import { ProfileDetails } from '../profiles/ProfileDetails'
 import { MessageDetails } from '../forms/MessageDetails'
 import { WelcomeUser } from '../nav/WelcomeUser'
+import { FilterFostersParents } from '../fosters/FilterFostersParents'
+import { ParentList } from '../ParentFoster/ParentList'
+import { EditProfile } from '../profiles/EditProfile'
 
 export const FosterParentView = () => {
 	return (
@@ -21,9 +22,9 @@ export const FosterParentView = () => {
 			}>
 			</Route>
 
-			<Route path="fosters" element={ <FosterList /> } />
+			<Route path="fosters" element={ <FilterFostersParents /> } />
 			
-			<Route path="parents" element={ <></> } />
+			<Route path="parents" element={ <ParentList/> } />
 
 			<Route path="fosters/:fosterId" element={ <FosterDetailsParent /> } />
 
@@ -37,7 +38,7 @@ export const FosterParentView = () => {
 
 			<Route path="profile" element={ <ParentProfile /> } />
 
-			<Route path="profile/edit" element={ <></> } />
+			<Route path="profile/:fosterParentId" element={ <EditProfile /> } />
 
 		</Routes>
 	)

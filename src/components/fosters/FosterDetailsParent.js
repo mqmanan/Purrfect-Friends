@@ -22,32 +22,13 @@ export const FosterDetailsParent = () => {
 
     return <>
 
-    {/* <section className="flex flex-col pl-20">
-
-        <div className="font-amatic text-7xl text-center text-violet-700 mt-6">
-                {foster.name}
-        </div>
-
-            <div className="text-center">
-                <button className="bg-violet-300 rounded-xl text-white py-1 px-3 mt-10 mb-10 font-amatic text-xl
-                        hover:bg-pink-500 hover:tracking-widest"
-                        type="submit"
-                        onClick={() => {
-                            navigate("/fosters/:fosterId/edit")
-                        }}
-                    >
-                    Modify
-                </button>
-            </div>
-    </section> */}
-
         <section className="flex flex-wrap p-20">
             
                 <div className="absolute right-72 top-48">
-                <img className="border-4 border-violet-400 rounded-3xl drop-shadow-lg" 
+                <img className="border-4 border-violet-400 rounded-3xl shadow-md hover:shadow-xl" 
                     src={foster.imageUrl} 
                     alt={foster.name} 
-                    width="360px"
+                    width="370px"
                 />
                 </div>
 
@@ -55,8 +36,9 @@ export const FosterDetailsParent = () => {
                     border-4 rounded-2xl border-violet-500 bg-violet-300 text-slate-800">
                     <div className="font-amatic text-4xl text-violet-600 mb-4"><b>{foster.name} </b></div>
                     <div className="tracking-tight mb-5"><b>🎉 Birthday </b> {foster.dob} 🎉 </div>
-                    <div className="font-biz tracking-tight text-justify mb-5"> {foster.description} </div>
+                    <div className="font-biz tracking-tight text-justify mb-4"> {foster.description} </div>
                     <div className="text-md tracking-wide"><b>Fixed?</b> {foster.spayedNeutered} </div>
+                    {/* <div className="text-md tracking-wide"><b>Foster Parent:</b> {fosterParent?.user?.name} </div> */}
                 </div>
 
                 <div className="px-6 py-5 absolute left-64 font-biz shadow-md
@@ -70,9 +52,9 @@ export const FosterDetailsParent = () => {
                 </div>
 
                 <div className="absolute right-60 top-20">
-                <button className="hover:bg-violet-800 rounded-xl text-black py-1 px-3 mt-10 mb-10 font-amatic
+                <button className="rounded-xl text-black py-1 px-3 mt-10 mb-10 font-amatic
                         bg-violet-400 hover:text-white hover:tracking-widest hover:font-bold
-                        text-2xl tracking-wide font-bold"
+                        text-2xl tracking-wide font-bold hover:bg-gradient-to-r from-pink-500 to-purple-500"
                         type="submit"
                         onClick={() => {
                             navigate(`/fosters/${foster.id}/edit`)

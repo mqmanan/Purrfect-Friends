@@ -28,12 +28,12 @@ export const ProfileDetails = () => {
             </div>
         
             <ul className="mt-6 pl-6 list-none">
-                <li className="font-amatic text-5xl font-bold tracking-wider text-violet-500">
+                <li className="font-amatic text-5xl font-bold tracking-wider text-indigo-500 mb-3">
                     {user.fullName}
                 </li>
-                <li className="mt-2 font-amatic text-4xl tracking-widest hover:list-disc">
+                <li className="font-biz text-xl tracking-widest mb-2">
                     <b>Email</b>: {user.email} </li>
-                <li className="font-amatic text-2xl tracking-wider hover:list-square">
+                <li className="font-biz text-lg tracking-wider">
                     <b>Adopted Fosters:</b> {user.adoptedId} </li>
             </ul>
 
