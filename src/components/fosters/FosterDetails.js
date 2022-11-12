@@ -45,8 +45,7 @@ export const FosterDetails = () => {
 
             <div className="absolute bottom-32 right-72">
                 <button className="bg-violet-300 rounded-xl text-violet-800 py-2 px-3 mt-10 mb-10 
-                        font-amatic text-2xl tracking-wider hover:bg-pink-500 hover:tracking-widest
-                        hover:text-3xl hover:text-white"
+                        font-amatic font-extrabold text-2xl tracking-wide hover:tracking-wider hover:text-3xl hover:text-white hover:bg-gradient-to-r from-pink-500 to-purple-500"
                         type="submit"
                         onClick={() => {
                             navigate("/contact")

@@ -140,8 +140,8 @@ export const NewFosterForm = () => {
 
     return (<>
 
-    <div class="relative inset-0 w-full md:fixed md:w-6/12">
-        <span class="absolute bottom-10 left-20 p-20 text-black text-8xl 
+    <div className="relative inset-0 w-full md:fixed md:w-6/12">
+        <span className="absolute bottom-11 left-20 p-20 text-black text-8xl 
             font-amatic font-bold tracking-wide">
             New Foster Form
         </span>
@@ -150,12 +150,12 @@ export const NewFosterForm = () => {
             className="object-cover w-full h-full items-center"
             loop
             autoplay
-            style={{ height: '550px', width: '550px' }}
+            style={{ height: '530px', width: '530px' }}
         />
     </div>
 
-    <div class="w-full ml-auto md:w-6/12">
-        <div class="flex flex-col items-left justify-center bg-purple-200 px-10 py-7">
+    <div className="w-full ml-auto md:w-6/12">
+        <div className="flex flex-col items-left justify-center bg-purple-200 px-10 py-7">
 
         <form className="font-biz space-y-5">
 
@@ -240,7 +240,7 @@ export const NewFosterForm = () => {
 
 <fieldset>
     <div className="form">
-        <div className="font-bold text-lg">Hogwart House:</div>
+        <div className="font-bold text-lg">Hogwarts House:</div>
         {hogwartHouses.map((hogwartHouse) => {
             return (
                 <div key={hogwartHouse.id} className="radio">
@@ -412,7 +412,7 @@ export const NewFosterForm = () => {
 <button 
     type="button"
     className="bg-violet-300 rounded-xl px-2 py-1 font-amatic tracking-wider
-                text-xl font-bold hover:bg-violet-600 hover:text-white mr-2"
+                text-xl font-bold hover:bg-violet-600 hover:text-white mr-2 hover:animate-bounce"
     onClick={(event) => {
         handleSaveButtonClick(event)
         }}
@@ -423,7 +423,7 @@ export const NewFosterForm = () => {
 <button 
     type="button"
     className="bg-violet-300 rounded-xl px-2 py-1 font-amatic tracking-wider
-                text-xl font-bold hover:bg-violet-600 hover:text-white"
+                text-xl font-bold hover:bg-violet-600 hover:text-white hover:animate-bounce"
     onClick={() => {
         navigate("/")
         }}
@@ -437,266 +437,5 @@ export const NewFosterForm = () => {
         </div>
         
     </div>
-
-
-
-
-        {/* <form className="font-biz mx-auto space-y-5 p-20">
-
-            <div className="text-6xl font-amatic font-bold tracking-wider text-center"> New Foster </div>
-
-            <fieldset>
-                <div className="form">
-                    <label htmlFor="name" className="font-bold text-lg ml-1">Name:</label>
-                    <input className="w-1/2 border border-slate-300 block rounded focus:outline-none focus:border-violet-700 shadow-sm"
-                        required
-                        id="name"
-                        type="text"
-                        placeholder="Foster name"
-                        value={userChoices.name}
-                        onChange={handleInputChange}
-                        /> 
-                </div>
-            </fieldset>
-
-            <fieldset>
-                <div className="form">
-                    <label htmlFor="imageUrl" className="font-bold text-lg ml-1">Image Url:</label>
-                    <input className="w-1/2 border border-slate-300 block rounded focus:outline-none focus:border-violet-700 shadow-sm"
-                        required
-                        id="imageUrl"
-                        type="text"
-                        placeholder="Example.com"
-                        value={userChoices.imageUrl}
-                        onChange={handleInputChange} 
-                    />
-                </div>
-            </fieldset>
-
-            <fieldset>
-                <div className="form">
-                    <div className="font-bold text-lg">Age:</div>
-                    {ageRanges.map((ageRange) => {
-                        return (
-                            <div key={ageRange.id} className="radio">
-                                <label className="inline-flex items-center">
-                                    <input className="focus:ring-pink-500 text-violet-500 mr-2"
-                                    type ="radio" 
-                                    value={ageRange.id} 
-                                    checked={userChoices.ageRangeId === ageRange.id}
-                                    onChange={(event) => {
-                                        const copy = { ...userChoices }
-                                        copy.ageRangeId = parseInt(event.target.value)
-                                        setUserChoices(copy)
-                                    }}
-                                />
-                                {ageRange.name}
-                                </label>
-                            </div>
-                        )
-                    })}
-                </div>
-            </fieldset>
-
-            <fieldset>
-                <div className="form">
-                    <div className="font-bold text-lg">Fur Pattern:</div>
-                    {furPatterns.map((furPattern) => {
-                        return (
-                            <div key={furPattern.id} className="radio">
-                                <label>
-                                    <input className="focus:ring-pink-500 text-violet-500 mr-2" 
-                                    type ="radio" 
-                                    value={furPattern.id} 
-                                    checked={userChoices.furPatternId === furPattern.id}
-                                    onChange={(event) => {
-                                        const copy = { ...userChoices }
-                                        copy.furPatternId = parseInt(event.target.value)
-                                        setUserChoices(copy)
-                                    }}
-                                />
-                                {furPattern.name}
-                                </label>
-                            </div>
-                        )
-                    })}
-                </div>
-            </fieldset>
-
-            <fieldset>
-                <div className="form">
-                    <div className="font-bold text-lg">Hogwart House:</div>
-                    {hogwartHouses.map((hogwartHouse) => {
-                        return (
-                            <div key={hogwartHouse.id} className="radio">
-                                <label>
-                                    <input className="focus:ring-pink-500 text-violet-500 mr-2"
-                                    type ="radio" 
-                                    value={hogwartHouse.id} 
-                                    checked={userChoices.hogwartHouseId === hogwartHouse.id}
-                                    onChange={(event) => {
-                                        const copy = { ...userChoices }
-                                        copy.hogwartHouseId = parseInt(event.target.value)
-                                        setUserChoices(copy)
-                                    }}
-                                />
-                                {hogwartHouse.name}
-                                </label>
-                            </div>
-                        )
-                    })}
-                </div>
-            </fieldset>
-
-            <fieldset>
-                <div className="form">
-                    <label htmlFor="description" className="font-bold text-lg ml-1">Description:</label>
-                    <textarea className="w-1/2 border border-slate-300 block rounded focus:outline-none focus:border-violet-700 shadow-sm"
-                        required
-                        id="description"
-                        type="text"
-                        style={{
-                            height: "10rem"
-                            }}
-                        placeholder="Foster Description"
-                        value={userChoices.description}
-                        onChange={handleInputChange}
-                        />
-                </div>
-            </fieldset>
-
-            <fieldset>
-                <div className="form">
-                    <label htmlFor="fixed" className="font-bold text-lg ml-1">Birthdate:</label>
-                    <input className="w-1/2 border border-slate-300 block rounded focus:outline-none focus:border-violet-700 shadow-sm"
-                        required
-                        id="dob"
-                        type="text"
-                        placeholder="Date of birth"
-                        value={userChoices.dob}
-                        onChange={handleInputChange}
-                        />
-                </div>
-            </fieldset>
-
-            <fieldset>
-                <div className="form">
-                    <label htmlFor="vaccine1" className="font-bold text-lg ml-1">FVRCP Vaccine 1:</label>
-                    <input className="w-full border border-slate-300 block rounded focus:outline-none focus:border-violet-700 shadow-sm"
-                        required 
-                        id="fvrcpVaccine1"
-                        type="text"
-                        placeholder="Date of Vaccine -- if none, type N/A"
-                        value={userChoices.fvrcpVaccine1}
-                        onChange={handleInputChange}
-                        />
-                </div>
-            </fieldset>
-
-            <fieldset>
-                <div className="form">
-                    <label htmlFor="vaccine2" className="font-bold text-lg ml-1">FVRCP Vaccine 2:</label>
-                    <input className="w-full border border-slate-300 block rounded focus:outline-none focus:border-violet-700 shadow-sm"
-                        required
-                        id="fvrcpVaccine2"
-                        type="text"
-                        placeholder="Date of Vaccine -- if none, type N/A"
-                        value={userChoices.fvrcpVaccine2}
-                        onChange={handleInputChange}
-                        />
-                </div>
-            </fieldset>
-
-            <fieldset>
-                <div className="form">
-                    <label htmlFor="vaccine3" className="font-bold text-lg ml-1">FVRCP Vaccine 3:</label>
-                    <input className="w-full border border-slate-300 block rounded focus:outline-none focus:border-violet-700 shadow-sm"
-                        required
-                        id="fvrcpVaccine3"
-                        type="text"
-                        placeholder="Date of Vaccine -- if none, type N/A"
-                        value={userChoices.fvrcpVaccine3}
-                        onChange={handleInputChange}
-                        />
-                </div>
-            </fieldset>
-
-            <fieldset>
-                <div className="form">
-                    <label htmlFor="vaccine4" className="font-bold text-lg ml-1">FeLV Vaccine:</label>
-                    <input className="w-full border border-slate-300 block rounded focus:outline-none focus:border-violet-700 shadow-sm"
-                        required
-                        id="felvVaccine"
-                        type="text"
-                        placeholder="Date of Vaccine -- if none, type N/A"
-                        value={userChoices.felvVaccine}
-                        onChange={handleInputChange}
-                        />
-                </div>
-            </fieldset>
-
-            <fieldset>
-                <div className="form">
-                    <label htmlFor="vaccine5" className="font-bold text-lg ml-1">Rabies Vaccine:</label>
-                    <input className="w-full border border-slate-300 block rounded focus:outline-none focus:border-violet-700 shadow-sm"
-                        required
-                        id="rabies"
-                        type="text"
-                        placeholder="Date of Vaccine -- if none, type N/A"
-                        value={userChoices.rabies}
-                        onChange={handleInputChange}
-                        />
-                </div>
-            </fieldset>
-
-            <fieldset>
-                <div className="form">
-                    <label htmlFor="fixed" className="font-bold text-lg ml-1">Spayed/Neutured?</label>
-                    <input className="w-full border border-slate-300 block rounded focus:outline-none focus:border-violet-700 shadow-sm"
-                        required
-                        id="spayedNeutered"
-                        type="text"
-                        placeholder="Yes or No?"
-                        value={userChoices.spayedNeutered}
-                        onChange={handleInputChange}
-                        />
-                </div>
-            </fieldset>
-
-            <fieldset>
-                <div className="form">
-                    <label htmlFor="fosterParent" className="font-bold text-lg ml-1">Foster Parent:</label>
-                            <select className="w-full border border-slate-300 block rounded focus:outline-none focus:border-violet-700 shadow-sm"
-                                required
-                                id = "fosterParent"
-                                type ="text"
-                                value={userChoices.fosterParentId} 
-                                onChange={(event) => {
-                                    const copy = { ...userChoices }
-                                    copy.fosterParentId = parseInt(event.target.value)
-                                    setUserChoices(copy)
-                                }}
-                            >
-                                <option>✦ Select Foster Parent ✦</option>
-                                {fosterParents.map((fosterParent) => {
-                                    return <option key={fosterParent.id} value={fosterParent.id}>
-                                        {fosterParent?.user?.fullName}</option>
-                                    }
-                                )}
-                            </select>
-                    </div>
-            </fieldset>
-
-            <button 
-                type="button"
-                className="bg-violet-300 rounded-xl px-2 py-1 font-amatic 
-                            tracking-wider text-xl font-bold hover:bg-violet-600 hover:text-white"
-                onClick={(event) => {
-                    handleSaveButtonClick(event)
-                    }}
-                >
-                Submit Ticket
-            </button><br></br><br></br>
-        </form> */}
     </>)
 }

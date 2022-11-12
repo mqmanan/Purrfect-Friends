@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom'
-import { FosterList } from "../fosters/FosterList"
+import { FilterFostersUsers } from '../fosters/FilterFostersUsers'
 import { FosterDetails } from '../fosters/FosterDetails'
 import { MessageForm } from '../forms/MessageForm'
 import { ProfileDetails } from '../profiles/ProfileDetails'
@@ -19,7 +19,7 @@ export const UserView = () => {
 			}>
 			</Route>
 
-			<Route path="fosters" element={ <FosterList /> } />
+			<Route path="fosters" element={ <FilterFostersUsers /> } />
 
 			<Route path="fosters/:fosterId" element={ <FosterDetails /> } />
 

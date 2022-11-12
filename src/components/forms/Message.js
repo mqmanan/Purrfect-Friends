@@ -30,22 +30,23 @@ export const Message = ({ message, fosterParents, currentUser, getAllMessages })
     
         <div className="flex flex-wrap place-content-center px-20" >
                     
-            <div className="p-5 border border-violet-300 rounded-2xl">
+            <div className="p-6 border-4 border-double border-purple-300 rounded-3xl mb-6">
 
                 <Link to={`/mailbox/${message.id}`} className="font-amatic text-3xl font-bold hover:tracking-widest hover:text-violet-600">
                     Message #{message.id}</Link>
                 <span className="block font-biz tracking-wider">
                     <b>From</b>: {message.name}</span>
-                <span className="block font-biz tracking-wider mb-4">
+                <span className="block font-biz tracking-wider mb-5">
                     <b>Subject</b>: {message.subject}</span> 
                     
-            <footer className="font-amatic text-2xl tracking-wider font-extrabold">
+            <footer className="font-amatic text-2xl text-violet-600 
+                    tracking-wider font-extrabold">
                 {
                     message.fosterParentMessages.length
                         ? `${assignedFosterParent !== null ? assignedFosterParent?.user?.fullName : ""} is replying. `
                         : <button
-                            className="bg-violet-300 rounded-xl px-2 py-1 font-amatic
-                                        tracking-wider text-xl font-bold hover:bg-emerald-600 hover:text-white"
+                            className="bg-violet-300 rounded-xl px-3 py-1 font-amatic
+                                        tracking-widest text-xl font-bold hover:bg-emerald-600 hover:text-white"
                             onClick={() => {
                                 fetch(`http://localhost:8088/fosterParentMessages`, {
                                     method: "POST",
@@ -67,8 +68,8 @@ export const Message = ({ message, fosterParents, currentUser, getAllMessages })
                 }
                 {
                     <button 
-                        className="bg-violet-300 rounded-xl px-2 py-1 font-amatic 
-                                    tracking-wider text-xl font-bold hover:bg-red-600 hover:text-white"
+                        className="bg-violet-300 text-violet-900 rounded-xl px-3 py-1 font-amatic ml-3
+                                    tracking-wider text-xl font-extrabold hover:bg-red-600 hover:text-white"
                         onClick={() => {
                             canDelete()
                         }}
@@ -79,6 +80,6 @@ export const Message = ({ message, fosterParents, currentUser, getAllMessages })
 
             </footer>
             </div>
-        </div><br></br>
+        </div>
      </>
 }

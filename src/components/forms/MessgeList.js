@@ -43,19 +43,15 @@ export const MessageList = () => {
 
             <div className="">
                 <Player
-                    src='https://assets3.lottiefiles.com/packages/lf20_rbajkB.json'
-                    className="absolute left-56 bottom-1"
+                    src='https://assets8.lottiefiles.com/packages/lf20_1y8r2z0j.json'
+                    className="absolute left-44 bottom-20"
                     loop
                     autoplay
-                    style={{ height: '600px', width: '500px' }}
+                    style={{ height: '600px', width: '600px' }}
                 />
             </div>
 
-            {/* <div className="flex mt-10 pr-3 pl-20 place-content-center">
-                    <img className="rounded-3xl shadow-lg" src="https://c8p9p3e5.rocketcdn.me/wp-content/uploads/2021/09/we-just-got-a-letter-mail-meme-blues-clues-song.jpeg" alt="mail" width="350"/>
-                </div> */}
-
-                <article className="absolute left-1/2 top-16">
+                <article className="absolute left-1/2 top-10 -space-y-3">
                 {
                     messages.map(
                         (message) => <Message 

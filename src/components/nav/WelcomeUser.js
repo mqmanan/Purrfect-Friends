@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react"
+// import { sunset } from "../animate/sunset.jpg"
+import { Link } from "react-router-dom"
 import { Player } from '@lottiefiles/react-lottie-player'
 
 export const WelcomeUser = () => {
 
-    // let Cat1 = require("../animate/Cat1.gif")
-
+    // let sunset = require("../animate/sunset.jpg")
 
     const [user, setUser] = useState([])
 
@@ -22,105 +23,96 @@ export const WelcomeUser = () => {
         [purrfectUserObj.id]
     )
 
-    return <section className="p-10 place-content-center">
+    return <section className="flex flex-wrap pl-16">
 
-        <center>
-            <div className="">
+        {/* <img src={sunset} alt="Kitty" width="" /> */}
 
-                <div className="grid gap-8 items-start justify-center mb-5">
-                    <div className="relative group">
-                        <button className="absolute -inset-1 bg-gradient-to-r from-purple-900 to-indigo-600 rounded-xl blur opacity-70 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></button>
-
-                        <button className="relative px-7 py-4 bg-purple-300 rounded-lg leading-none 
-                        flex items-center">
-
-                        <span className="flex items-center space-x-5">
-                            <svg 
-                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 -rotate-45 text-indigo-700">
-                                <path 
-                                    fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd" 
-                                />
-                            </svg>
-                        </span>
-
-                        <span className="pr-1 pl-3 text-indigo-700 font-bold font-amatic 
-                            text-4xl tracking-wider">Welcome to Purrfect Friends</span>
-
-                        <span className="pr-3 pl-1 text-violet-500 group-hover:text-white
-                            transition duration-200 font-bold font-amatic text-3xl tracking-wider">
-                    
-                            <a href="http://localhost:3000/profile">{user.fullName}</a>
-                         
-                        </span>
-
-                        <span className="flex items-center space-x-5">
-                            <svg 
-                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 -rotate-6 text-indigo-700">
-                                <path 
-                                    fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd" 
-                                />
-                            </svg>
-                        </span>
-                        
-                        </button>
-                    </div>
-                </div>
-
-                <div className="flex flex-wrap">
-
-                    {/* <div className="mt-10">
-                    <img className="border-dashed border-4 border-teal-400 rounded-xl shadow-lg 
-                     hover:shadow-emerald-700"
-                            src="https://www.goodmews.org/wp-content/uploads/donate-3.png" 
-                            alt="donate"
-                            width="310" />
-                    </div>
-
-                    <div className="mt-10">
-                    <img className="border-dashed border-4 border-pink-400 rounded-xl 
-                    shadow-lg hover:shadow-pink-900"
-                            src="https://www.goodmews.org/wp-content/uploads/adopt-3.png" 
-                            alt="adopt"
-                            width="310" />
-                    </div> */}
-
-                    {/* <img src={Cat1} alt="Kitty" width="150px" /> */}
-
-                    <Player
-                        src='https://assets1.lottiefiles.com/packages/lf20_dopee6e0.json'
-                        className="absolute left-1/4 bottom drop-shadow-lg opacity-60"
-                        loop
-                        autoplay
-                        style={{ height: '700px', width: '700px' }}
-                    />
-                  
-
-                </div>
-                
-                <div className="flex flex-wrap place-content-evenly">
-
-                    <div className="absolute inset-y-1/3 inset-x-auto right-54 border border-violet-400 rounded 
-                                    text-xl font-biz tracking-wide">
-                        <span className="block">your support saves lives</span> 
-                        <span className="block">-- With your support, we can continue finding good homes for good kitties. See the many ways you can help.</span>    
-                        <span className="block">-- With your support, we can continue finding good homes for good kitties. See the many ways you can help.</span>   
-                        <span className="block">-- With your support, we can continue finding good homes for good kitties. See the many ways you can help.</span>   <span className="block">-- With your support, we can continue finding good homes for good kitties. See the many ways you can help.</span>   
-                        <span className="block">-- With your support, we can continue finding good homes for good kitties. See the many ways you can help.</span>         
-                    </div>
-                
-                    {/* <div className="text-3xl">
-                    <span>adopt a forever friend </span>--  
-                    <span>Our adoption counselors are experienced matchmakers, ready to help you find your lifelong companion.  </span>            
-                    </div> */}
-
-                    {/* <div className="text-3xl">
-                    <span>come play with us</span> --
-                    <span>Being a volunteer is rewarding. You could have a meaningful impact on an animal who has never known love.  </span>           
-                    </div> */}
-                </div>
-
-            
+        <div className="bg-gradient-to-tr from-violet-400 to-indigo-900 w-full h-96 
+            shadow-lg mb-5">
+            <img src='https://images.pexels.com/photos/9783913/pexels-photo-9783913.jpeg?auto=compress&         cs=tinysrgb&w=1260&h=750&dpr=1'
+            alt="catbanner"
+                 className="w-full h-96 object-cover static mix-blend-overlay" />
+            <div className="p-16 absolute -right-4 top-1">
+                <span className="block font-bold text-8xl text-white
+                    font-amatic text-right">
+                    Purrfect Friends</span>
+                <span className="block mb-7 text-3xl text-white tracking-wide 
+                    font-amatic text-right">
+                    Find the <b>Yin</b> to your <b>Yang</b> ☯ <Link className="hover:underline hover:underline-offset-8 text-pink-500 font-bold" 
+                        to={`/profile`} > {user.fullName}</Link></span>
+                <span className="block text-xl text-white tracking-wider
+                    font-amatic text-right">
+                    Currently servicing the CSRA community of Augusta, GA </span>
             </div>
-        </center>
+        </div>
+
+                <div className="flex">
+
+                    <div className="absolute left-28 top-72 w-1/3 tracking-wide ml-5 mr-2 
+                        pb-10">
+                        <span className="absolute -left-0 bg-white p-3 rounded-t-2xl font-amatic text-4xl 
+                            font-extrabold w-full">
+                        your support saves lives</span> 
+                        <span className="block bg-violet-300 pt-6 pb-4 rounded-t-2xl">
+                            <Player
+                            src='https://assets3.lottiefiles.com/packages/lf20_dopee6e0.json'
+                                className="opacity-90"
+                                loop
+                                autoplay
+                                style={{ height: '400px', width: '450px' }}
+                            />
+                        </span>    
+                        <span className="block bg-violet-300 px-7 pb-5 -mt-16 font-biz text-lg text-justify">
+                            <b>There are so many</b> loving adoptable pets right in your community waiting for a family to call their own.</span>   
+                  
+                        <span className="block bg-violet-300 px-7 pb-5 rounded-b-2xl font-biz text-lg text-justify text-wrap">
+                            <img className="relative float-left pr-4 -mt-2 rounded-full opacity-70 blur-md"
+                                src="https://prd-use1-shelter-app.s3.amazonaws.com/wfeqqqpsim.png" 
+                                alt="non-profit"
+                                width="220"
+                                />
+                            <a href="https://thatswhatfriendsarefor.org/" 
+                                className="hover:mix-blend-luminosity">
+                            <img className=" absolute float-left pl-2 pr-4 rounded-full opacity-80 mix-blend-overlay"
+                                src="https://prd-use1-shelter-app.s3.amazonaws.com/wfeqqqpsim.png" 
+                                alt="non-profit"
+                                width="217"
+                                /></a>
+                                
+                                <b>If you need financial assistance</b>, we currently work with a local non-profit group -- <b><a href="https://thatswhatfriendsarefor.org/" className="hover:bg-pink-200">That's What Friends Are For, Inc</a></b>. They can <b>assist</b> with funds for the necessary (initial) vet appointments for a <b>donation</b> fee of $75. Contact us for more details.
+                                </span>    
+                            
+                    </div>
+
+                    <div className="absolute right-20 top-80 w-1/2 border-violet-700 rounded-xl 
+                                    text-xl font-biz tracking-wide ml-2 mr-5 pb-5">
+                        <span className="relative block bg-white p-3 rounded-t-2xl font-amatic text-4xl font-extrabold">
+                        🎁 A Purrfect Friend for the Holidays 🎁</span>  
+                        <span className="block bg-violet-300 p-10 items-center rounded-b-2xl">
+                            <Player
+                            src='https://assets8.lottiefiles.com/packages/lf20_uultxlbm.json'
+                                className="opacity-20"
+                                loop
+                                autoplay
+                                style={{ height: '550px', width: '510px' }}
+                            />
+                        </span>   
+                        <span className="absolute top-28 block px-8 pb-3 font-biz text-lg text-center">
+                            If your friends or neighbors have cats then you might be ready to adopt your own. <b>If you live alone, or you have a partner but you don't like kids, then a cat may be right for you.</b></span>   
+                        <span className="absolute top-60 block px-8 pb-3 font-biz text-lg text-center">
+                            First of all -- <b>adopt, don't shop!</b> Not only is it expensive to buy purebred kittens, they just don't live as long as the common house cat. Oh, that & people breeding cats for profits <b>won't</b> benefit you either.
+                            </span>   
+                        <span className="absolute bottom-52 block px-8 pb-3 font-biz text-lg text-center">
+                            <b>Nothing is better</b> than rescuing a cat (or two or four) from your local animal rescue organization. <b>Finding forever homes for our cats is an ongoing labor of love and care</b>.
+                            </span>   
+
+                        <span className="absolute bottom-10 block px-8 pb-6 font-biz text-lg rounded-b-xl text-center">
+                            Rescued cats and kittens are cared for through a network of foster homes until they are adopted. <b>Adopt through us and you'll be saving a life and helping the community with it's cat overpopulation issue!</b></span>   
+
+                    </div>
+
+                    <footer className="text-purple-200 font-biz text-xs text-center pt-1- pr-10 absolute right-96 -bottom-80">ⓒ Purrfect Friends 2022</footer>
+                
+                </div>
     </section>
 }

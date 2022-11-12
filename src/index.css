@@ -13,17 +13,16 @@
   }
 
   .navbar-details {
-    @apply absolute w-auto px-2 m-2 min-w-max left-14 
-           rounded-md shadow-md
+    @apply absolute w-auto px-2 m-2 min-w-max left-14 rounded-md shadow-md
            text-white bg-purple-900 font-amatic text-2xl
-           font-bold
-           transition-all duration-100 scale-0 origin-left
+           font-bold transition-all duration-100 scale-0 origin-left
   }
 
 }
 
 @layer base {
   body {
-    background-color: #feedfc
+    background-color: #feedfc;
+    overflow-x: hidden
   }
 }

@@ -128,8 +128,8 @@ export const EditFosterForm = () => {
 
     return <>
 
-    <div class="relative inset-0 w-full md:fixed md:w-5/12">
-        <span class="absolute bottom-16 left-16 p-20 text-black text-8xl 
+    <div className="relative inset-0 md:fixed md:w-5/12">
+        <span className="absolute bottom-16 left-16 p-20 text-black text-8xl 
             font-amatic font-bold tracking-wide">
             Update Foster
         </span>
@@ -138,12 +138,12 @@ export const EditFosterForm = () => {
             className="object-cover w-full h-full items-center"
             loop
             autoplay
-            style={{ height: '450px', width: '450px' }}
+            style={{ height: '490px', width: '480px' }}
         />
     </div>
 
-        <div class="w-full ml-auto md:w-7/12">
-            <div class="flex flex-col items-left justify-center bg-purple-200 px-10 py-7">
+        <div className="w-full ml-auto md:w-7/12">
+            <div className="flex flex-col items-left justify-center bg-purple-200 px-10 py-7">
 
         <form className="font-biz space-y-5">
             
@@ -226,7 +226,7 @@ export const EditFosterForm = () => {
 
             <fieldset>
                 <div className="form">
-                    <div className="font-bold text-lg">Hogwart House:</div>
+                    <div className="font-bold text-lg">Hogwarts House:</div>
                     {hogwartHouses.map((hogwartHouse) => {
                         return (
                             <div key={hogwartHouse.id} className="radio">
