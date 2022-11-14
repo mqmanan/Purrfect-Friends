@@ -24,8 +24,11 @@ export const FoundParents = ({ searchTermState }) => {
                 .then(response => {
                     return response.json()})
                 .then((parentsArray) => {
-                    setParents(parentsArray)
-                    return parentsArray
+                    const sortParents = [...parentsArray].sort((a, b) =>
+                    a?.user?.fullName > b?.user?.fullName ? 1 : -1,)
+
+                    setParents(sortParents)
+                    return sortParents
                 })
         },
         [] // When this array is empty, you are observing initial component state

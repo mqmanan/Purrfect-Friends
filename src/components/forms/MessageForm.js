@@ -111,7 +111,7 @@ export const MessageForm = () => {
                     <input className="border border-violet-300 block w-full py-1 px-3 rounded focus:outline-none focus:border-violet-700 font-bold tracking-wider" 
                         id="subject"
                         type="text"
-                        placeholder="What do you want to talk about?"
+                        placeholder="Subject -- Adopting, Donation, etc."
                         value={messageForm.subject}
                         onChange={handleInputChange}
                         /> 
